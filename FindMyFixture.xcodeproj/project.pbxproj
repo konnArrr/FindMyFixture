@@ -11,6 +11,7 @@
 		3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9D2671492B003AF4D3 /* ContentView.swift */; };
 		3FBE1DA02671492C003AF4D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9F2671492C003AF4D3 /* Assets.xcassets */; };
 		3FBE1DA32671492C003AF4D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE1DA22671492C003AF4D3 /* Preview Assets.xcassets */; };
+		3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1DAC267155D8003AF4D3 /* LoginService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		3FBE1D9F2671492C003AF4D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FBE1DA22671492C003AF4D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FBE1DA42671492C003AF4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FBE1DAC267155D8003AF4D3 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		3FBE1D9A2671492B003AF4D3 /* FindMyFixture */ = {
 			isa = PBXGroup;
 			children = (
+				3FBE1DAB26714E3E003AF4D3 /* Services */,
 				3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */,
 				3FBE1D9D2671492B003AF4D3 /* ContentView.swift */,
 				3FBE1D9F2671492C003AF4D3 /* Assets.xcassets */,
@@ -67,6 +70,14 @@
 				3FBE1DA22671492C003AF4D3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3FBE1DAB26714E3E003AF4D3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3FBE1DAC267155D8003AF4D3 /* LoginService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */,
+				3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */,
 				3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
