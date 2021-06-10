@@ -1,27 +1,26 @@
 //
-//  LoginService.swift
+//  UserLoaderService.swift
 //  FindMyFixture
 //
-//  Created by Student on 09.06.21.
+//  Created by Student on 10.06.21.
 //
 
 import Foundation
 import SwiftUI
 
 
-class LoginService: ObservableObject {
+class UserLoader {
     
     private let decoder = JSONDecoder()
-    private var loginSucces: Bool = false
     
-    public func userLogin(username: String, password: String, completion: @escaping (_ loginSucces: Bool, _ message: String, _ userId: Int) -> Void) {
-        guard let url:URL = URL(string: "http://hasashi.bplaced.net/findmyfixture/php/loginsql_fmf.php") else {
+    func getUserBy(userId: Int, completion: @escaping (_ user: User) -> Void) {
+        guard let url:URL = URL(string: "http://hasashi.bplaced.net/findmyfixture/php/getuser_byid_pdo.php") else {
             print("Invalid URL")
             return
         }
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
-        let bodyData:String = "username=\(username)&password=\(password)"
+        let bodyData:String = "id=\(userId)"
         request.httpBody = bodyData.data(using: String.Encoding.utf8)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else { return }
@@ -31,14 +30,11 @@ class LoginService: ObservableObject {
             guard (200..<299).contains(statusCode) else { return }
             guard let data = data else { return }
             do {
-                let dataResponse = try self.decoder.decode([LoginResponse].self, from: data)
+                let dataResponse = try self.decoder.decode([User].self, from: data)
                 DispatchQueue.main.async {
-                    guard let loginData = dataResponse.first else { return }
-                    if loginData.state == "3" {
-                        self.loginSucces = true
-                    }
-                    completion(self.loginSucces, loginData.message, Int(loginData.userId) ?? 0)
-                    print("\(loginData)")
+                    guard let user: User = dataResponse.first else { return }
+                    completion(user)
+                    print("\(user)")
                 }
             } catch DecodingError.keyNotFound(let key, let context) {
                 Swift.print("could not find key \(key) in JSON: \(context.debugDescription)")
@@ -54,5 +50,6 @@ class LoginService: ObservableObject {
         }.resume()
     }
     
- 
+    
+    
 }

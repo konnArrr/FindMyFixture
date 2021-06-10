@@ -8,12 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     let loginService = LoginService()
+    let userLoader = UserLoader()
+    let registerService = UserRegisterService()
+    
+    
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
             .onAppear {
-                loginService.checkLoginData(u: "admin", p: "admin")
+//                loginService.userLogin(username: "gue", password: "ads") { (success, msg, uid) in
+//                    print("succes: \(success)")
+//                    print("msg: \(msg)")
+//                    print("uid: \(uid)")
+//                }
+                
+                userLoader.getUserBy(userId: 16) { (user) in
+                    print("\(user)")
+                }
+//                registerService.registerUser(username: "bärbel", password: "bärbel") { (string) in
+//                    print("\(string)")
+//                }
                 // print("userIsIn: \(loginService.userIsIn)")
             }
     }
