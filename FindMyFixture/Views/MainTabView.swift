@@ -16,7 +16,7 @@ struct MainTabView: View {
     
     
     var body: some View {
-        //        Text("test")
+        
         TabView {
             ListSearchView()
                 .tabItem {

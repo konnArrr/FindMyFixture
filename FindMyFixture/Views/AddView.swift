@@ -50,62 +50,150 @@ struct AddView: View {
                             .onChange(of: power) { (power) in
                                 viewModel.fixtureToAdd.power = Int(power) ?? 0
                             }
-                        
-//                        Spacer()
-//                        Text("\(viewModel.fixtureToAdd.power)")
-//                        Spacer()
-//                        Divider()
-//                        Spacer()
-//                        Text("\(viewModel.fixtureToAdd.powerLight)")
-//                        Spacer()
+                        Divider()
+                        TextField("enter light power", text: $powerLight)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(powerLight)) { newValue in
+                                            let filtered = newValue.filter { "0123456789".contains($0) }
+                                            if filtered != newValue {
+                                                self.powerLight = filtered
+                                            }
+                            }
+                            .onChange(of: powerLight) { (powerL) in
+                                viewModel.fixtureToAdd.powerLight = Int(powerL) ?? 0
+                            }
                     }
                 }
                 Section(header: Text("Lamp Type")) {
-                    Text("\(viewModel.fixtureToAdd.lampType.getLampTypeName())")
+                    Picker(selection: $lamptype, label: Text("")) {
+                        ForEach(LampType.allCases, id: \.self) {
+                            Text($0.getLampTypeName()).tag($0)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: lamptype) { (lamptype) in
+                        viewModel.fixtureToAdd.headMover = lamptype.rawValue
+                    }
                 }
-                Section(header: Text("Gobo Wheels || Prism Wheels")) {
+                Section(header: Text("Number Gobo Wheels || Number Prism Wheels")) {
                     HStack {
-                        Spacer()
-                        Text("\(viewModel.fixtureToAdd.goboWheels)")
-                        Spacer()
+                        TextField("enter gobo wheels", text: $goboWheels)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(goboWheels)) { newValue in
+                                            let filtered = newValue.filter { "0123456789".contains($0) }
+                                            if filtered != newValue {
+                                                self.goboWheels = filtered
+                                            }
+                            }
+                            .onChange(of: goboWheels) { input in
+                                viewModel.fixtureToAdd.goboWheels = Int(input) ?? 0
+                            }
                         Divider()
-                        Spacer()
-                        Text("\(viewModel.fixtureToAdd.prisms)")
-                        Spacer()
+                        TextField("enter prisms", text: $prisms)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(prisms)) { newValue in
+                                            let filtered = newValue.filter { "0123456789".contains($0) }
+                                            if filtered != newValue {
+                                                self.prisms = filtered
+                                            }
+                            }
+                            .onChange(of: prisms) { (input) in
+                                viewModel.fixtureToAdd.prisms = Int(input) ?? 0
+                            }
                     }
                 }
                 Section(header: Text("Zoom Min || Max")) {
                     HStack {
-                        Spacer()
-                        Text("\(viewModel.fixtureToAdd.minZoom)")
-                        Spacer()
+                        TextField("enter min zoom", text: $minZoom)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(minZoom)) { newValue in
+                                            let filtered = newValue.filter { "0123456789.".contains($0) }
+                                            if filtered != newValue {
+                                                self.minZoom = filtered
+                                            }
+                            }
+                            .onChange(of: minZoom) { input in
+                                viewModel.fixtureToAdd.minZoom = Double(input) ?? 0
+                            }
                         Divider()
-                        Spacer()
-                        Text("\(viewModel.fixtureToAdd.maxZoom)")
-                        Spacer()
+                        TextField("enter max zoom", text: $maxZoom)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(maxZoom)) { newValue in
+                                            let filtered = newValue.filter { "0123456789.".contains($0) }
+                                            if filtered != newValue {
+                                                self.maxZoom = filtered
+                                            }
+                            }
+                            .onChange(of: maxZoom) { (input) in
+                                viewModel.fixtureToAdd.maxZoom = Double(input) ?? 0
+                            }
                     }
                 }
                 Section(header: Text("Color Mix System")) {
-                    Text("\(viewModel.fixtureToAdd.colorSysEnum.getColorSystemName())")
+                    Picker(selection: $colorSys, label: Text("")) {
+                        ForEach(ColorSystem.allCases, id: \.self) {
+                            Text($0.getColorSystemName()).tag($0)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: colorSys) { (colorS) in
+                        viewModel.fixtureToAdd.colorSystem = colorS.rawValue
+                    }
                 }
-                Section(header: Text("DMX Number Modes || Min || Max")) {
+                Section(header: Text("DMX Number Modes || Min Channel || Max Channel")) {
                     HStack {
-                        Text("\(viewModel.fixtureToAdd.dmxModes)")
-                        Spacer()
+                        TextField("enter dmx modes", text: $dmxModes)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(dmxModes)) { newValue in
+                                            let filtered = newValue.filter { "0123456789".contains($0) }
+                                            if filtered != newValue {
+                                                self.dmxModes = filtered
+                                            }
+                            }
+                            .onChange(of: dmxModes) { input in
+                                viewModel.fixtureToAdd.dmxModes = Int(input) ?? 0
+                            }
                         Divider()
-                        Spacer()
-                        Text("\(viewModel.fixtureToAdd.minDmx)")
-                        Spacer()
+                        TextField("enter min dmx", text: $minDmx)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(minDmx)) { newValue in
+                                            let filtered = newValue.filter { "0123456789".contains($0) }
+                                            if filtered != newValue {
+                                                self.minDmx = filtered
+                                            }
+                            }
+                            .onChange(of: minDmx) { input in
+                                viewModel.fixtureToAdd.minDmx = Int(input) ?? 0
+                            }
                         Divider()
-                        Spacer()
-                        Text("\(viewModel.fixtureToAdd.minDmx)")
+                        TextField("enter max dmx", text: $maxDmx)
+//                            .keyboardType(.numberPad)
+                            .onReceive(Just(maxDmx)) { newValue in
+                                            let filtered = newValue.filter { "0123456789".contains($0) }
+                                            if filtered != newValue {
+                                                self.maxDmx = filtered
+                                            }
+                            }
+                            .onChange(of: maxDmx) { input in
+                                viewModel.fixtureToAdd.maxDmx = Int(input) ?? 0
+                            }
                     }
                 }
                 Section(header: Text("Weight")) {
-                    Text("\(viewModel.fixtureToAdd.weight)")
+                    TextField("enter weight", text: $weight)
+//                            .keyboardType(.numberPad)
+                        .onReceive(Just(weight)) { newValue in
+                                        let filtered = newValue.filter { "0123456789".contains($0) }
+                                        if filtered != newValue {
+                                            self.weight = filtered
+                                        }
+                        }
+                        .onChange(of: weight) { input in
+                            viewModel.fixtureToAdd.weight = Int(input) ?? 0
+                        }
                 }
                 Section(header: Text("Comment")) {
-                    Text("\(viewModel.fixtureToAdd.comment)")
+                    TextField("enter comment", text: $viewModel.fixtureToAdd.comment)
                 }
             }
             VStack {

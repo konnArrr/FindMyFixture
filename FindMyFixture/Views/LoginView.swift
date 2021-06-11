@@ -14,8 +14,8 @@ struct LoginView: View {
     
     @StateObject var viewModel = LoginViewModel()
     
-    @State private var username: String = "admin"
-    @State private var password: String = "admin"
+    @State private var username: String = ""
+    @State private var password: String = ""
 
     
     

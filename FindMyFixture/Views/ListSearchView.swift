@@ -51,14 +51,14 @@ struct ListSearchView: View {
                 .navigationBarHidden(showCancelButton)
                 .onChange(of: searchString) {newValue in
                     viewModel.searchFixturesByName(searchTerm: newValue)
-                    // search category picker
+                    
                 }
                 
                 
                 ScrollView {
                     LazyVStack {
                         ForEach(viewModel.fixturesToShow, id: \.id) {fixture in
-                            NavigationLink(destination: DetailView(fixture: fixture)) {
+                            NavigationLink(destination: DetailView(fixture: fixture, showAddButton: true)) {
                                 RowView(fixture: fixture)
                             }
                             .buttonStyle(PlainButtonStyle())

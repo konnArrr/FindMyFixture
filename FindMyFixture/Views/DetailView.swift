@@ -11,9 +11,13 @@ struct DetailView: View {
     
     let fixture: Fixture
     
+    let showAddButton: Bool
+    
     @State var fixtureImage: Image?
     
     @StateObject var viewModel = DetailViewModel()
+    
+    
     
     var body: some View {
         VStack {
@@ -101,19 +105,37 @@ struct DetailView: View {
                 Text("\(fixture.comment)")
             }
         }
-
-//        .navigationTitle("Detail View")
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    print("pressed")
-                } label: {
-                    Text("add to favourites")
-                }
-
-            }
+        .onAppear {
+            StorageLoader.shared.loadFavouriteFixturesList()
         }
+        //        .navigationTitle("Detail View")
+        .toolbar {
+            
+            ToolbarItem {
+                if showAddButton {
+                    Button {
+                        sendAddAddMsgToStorageLoader()
+                    } label: {
+                        Text("add to favourites")
+                    }                    
+                } else {
+                    EmptyView()
+                }
+                
+            }
+            
+            
+        }
+        
+        
     }
+    
+    private func sendAddAddMsgToStorageLoader() {
+        NotificationCenter.default.post(name: .addFavouriteFixtureMessage, object: fixture)
+        print("add pressed")
+    }
+    
+    
 }
 
 

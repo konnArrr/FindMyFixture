@@ -17,7 +17,7 @@ class ListSearchViewModel: ObservableObject {
     
     init() {
         cancellable = Repository.shared.$fixturesToShow.sink(receiveValue: { [weak self] loadedFixtures in
-            // nötog weil folgender error: Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates. das scheint zu helfen
+            // nötig weil folgender error: Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates. das scheint zu helfen
             DispatchQueue.main.async {
                 self?.fixturesToShow = loadedFixtures
             }

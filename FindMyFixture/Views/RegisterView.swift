@@ -16,10 +16,7 @@ struct RegisterView: View {
     @State var passwordRepeat: String = ""
     
     
-//    @Binding var email: String
-//    @Binding var classname: String
-//    @Binding var responseText: String
-//    @Binding var loginOrRegister: Bool
+
     
 
     
@@ -63,11 +60,7 @@ struct RegisterView: View {
                 
             }
             .padding([.leading, .trailing], 27.5)
-//            .onAppear {
-//                username = ""
-//                password = ""
-//                email = ""
-//            }
+
             Text("\(viewModel.message)")
                 .multilineTextAlignment(.center)
                 .font(.title2)
@@ -93,15 +86,7 @@ struct RegisterView: View {
             
             
             Spacer()
-//            HStack(spacing: 0) {
-//                Text("You have an account? ")
-//                Button(action: {
-//                    self.loginOrRegister = true
-//                }) {
-//                    Text("Sign In")
-//                        .foregroundColor(.blue)
-//                }
-//            }
+
             
             
         }
@@ -110,14 +95,7 @@ struct RegisterView: View {
                 .edgesIgnoringSafeArea(.all))
     }
     
-//    private func checkTextFieldEmpty() -> Bool {
-//        // || password.isEmpty || email.isEmpty
-//        if classname.isEmpty {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
+
 }
 
 

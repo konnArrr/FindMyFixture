@@ -32,6 +32,9 @@
 		3FAF78152673603200666059 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF78142673603200666059 /* DetailView.swift */; };
 		3FAF781C26738AA100666059 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF781B26738AA100666059 /* DetailViewModel.swift */; };
 		3FAF781F26738F5E00666059 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF781E26738F5E00666059 /* AddViewModel.swift */; };
+		3FAF78222673C11400666059 /* StorageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF78212673C11400666059 /* StorageLoader.swift */; };
+		3FAF78252673C2AE00666059 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF78242673C2AE00666059 /* FavouritesViewModel.swift */; };
+		3FAF78282673CFEB00666059 /* RowViewFavourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF78272673CFEB00666059 /* RowViewFavourites.swift */; };
 		3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */; };
 		3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9D2671492B003AF4D3 /* ContentView.swift */; };
 		3FBE1DA02671492C003AF4D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9F2671492C003AF4D3 /* Assets.xcassets */; };
@@ -65,6 +68,9 @@
 		3FAF78142673603200666059 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3FAF781B26738AA100666059 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		3FAF781E26738F5E00666059 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		3FAF78212673C11400666059 /* StorageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLoader.swift; sourceTree = "<group>"; };
+		3FAF78242673C2AE00666059 /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		3FAF78272673CFEB00666059 /* RowViewFavourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewFavourites.swift; sourceTree = "<group>"; };
 		3FBE1D982671492B003AF4D3 /* FindMyFixture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyFixture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyFixtureApp.swift; sourceTree = "<group>"; };
 		3FBE1D9D2671492B003AF4D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 				3FA9B44126735056000A3233 /* ListSearchViewModel.swift */,
 				3FAF781B26738AA100666059 /* DetailViewModel.swift */,
 				3FAF781E26738F5E00666059 /* AddViewModel.swift */,
+				3FAF78242673C2AE00666059 /* FavouritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -114,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3F70354A267262D30004DEF5 /* RowView.swift */,
+				3FAF78272673CFEB00666059 /* RowViewFavourites.swift */,
 				3F70355426726F610004DEF5 /* LoginView.swift */,
 				3F70355726726FF90004DEF5 /* RegisterView.swift */,
 				3F70355A267270730004DEF5 /* MainTabView.swift */,
@@ -129,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				3FA9B43E26734F3C000A3233 /* Repository.swift */,
+				3FAF78212673C11400666059 /* StorageLoader.swift */,
 				3F7035272671FC0A0004DEF5 /* Model */,
 			);
 			path = Data;
@@ -264,6 +273,7 @@
 				3FAF781C26738AA100666059 /* DetailViewModel.swift in Sources */,
 				3F703532267221F10004DEF5 /* UserRegisterService.swift in Sources */,
 				3F70353F267251290004DEF5 /* FixtureAddingService.swift in Sources */,
+				3FAF78282673CFEB00666059 /* RowViewFavourites.swift in Sources */,
 				3F7035672672972E0004DEF5 /* AddView.swift in Sources */,
 				3FAF78152673603200666059 /* DetailView.swift in Sources */,
 				3F70356A267298A60004DEF5 /* TabViewModel.swift in Sources */,
@@ -276,9 +286,11 @@
 				3F70355226726A830004DEF5 /* LoginViewModel.swift in Sources */,
 				3F70354326725CEB0004DEF5 /* ImageLoaderService.swift in Sources */,
 				3F703561267297090004DEF5 /* ListSearchView.swift in Sources */,
+				3FAF78252673C2AE00666059 /* FavouritesViewModel.swift in Sources */,
 				3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */,
 				3F7035292671FD9C0004DEF5 /* UserModel.swift in Sources */,
 				3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */,
+				3FAF78222673C11400666059 /* StorageLoader.swift in Sources */,
 				3F70353C267245DB0004DEF5 /* FixtureLoaderService.swift in Sources */,
 				3F70355526726F610004DEF5 /* LoginView.swift in Sources */,
 				3F70355B267270730004DEF5 /* MainTabView.swift in Sources */,
