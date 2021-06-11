@@ -1,26 +1,42 @@
 //
-//  UserLoaderService.swift
+//  FixtureAddingService.swift
 //  FindMyFixture
 //
 //  Created by Student on 10.06.21.
 //
 
 import Foundation
-import SwiftUI
 
 
-class UserLoader {
-    
+class FixtureAdding {
     private let decoder = JSONDecoder()
     
-    func getUserBy(userId: Int, completion: @escaping (_ user: User) -> Void) {
-        guard let url:URL = URL(string: "http://hasashi.bplaced.net/findmyfixture/php/getuser_byid_pdo.php") else {
+    
+    public func addFixture(fixture: Fixture, completion: @escaping (_ message: String) -> Void) {
+        guard let url:URL = URL(string: "http://hasashi.bplaced.net/findmyfixture/php/add_fixture.php") else {
             print("Invalid URL")
             return
         }
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
-        let bodyData:String = "id=\(userId)"
+        let bodyData:String = """
+        name=\(fixture.name)\
+        &producer=\(fixture.producer)\
+        &power=\(fixture.power)\
+        &powerlight=\(fixture.powerLight)\
+        &headmover=\(fixture.headMover)\
+        &gobowheels=\(fixture.goboWheels)\
+        &prisms=\(fixture.prisms)\
+        &minzoom=\(fixture.minZoom)\
+        &maxzoom=\(fixture.maxZoom)\
+        &colorsystem=\(fixture.colorSystem)\
+        &dmxmodes=\(fixture.dmxModes)\
+        &mindmx=\(fixture.minDmx)\
+        &maxdmx=\(fixture.maxDmx)\
+        &maxdmx=\(fixture.maxDmx)\
+        &weight=\(fixture.weight)\
+        &comment=\(fixture.comment)
+        """
         request.httpBody = bodyData.data(using: String.Encoding.utf8)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else { return }
@@ -30,11 +46,10 @@ class UserLoader {
             guard (200..<299).contains(statusCode) else { return }
             guard let data = data else { return }
             do {
-                let dataResponse = try self.decoder.decode([User].self, from: data)
+                let dataResponse = try self.decoder.decode([PhpResponse].self, from: data)
                 DispatchQueue.main.async {
-                    guard let user: User = dataResponse.first else { return }
-                    completion(user)
-                    print("\(user)")
+                    guard let registerResponse = dataResponse.first else { return }
+                    completion(registerResponse.message)
                 }
             } catch DecodingError.keyNotFound(let key, let context) {
                 Swift.print("could not find key \(key) in JSON: \(context.debugDescription)")
@@ -49,7 +64,5 @@ class UserLoader {
             }
         }.resume()
     }
-    
-    
     
 }

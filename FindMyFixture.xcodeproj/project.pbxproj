@@ -11,7 +11,25 @@
 		3F70352C2671FDD30004DEF5 /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70352B2671FDD30004DEF5 /* LoginResponseModel.swift */; };
 		3F70352F26721B760004DEF5 /* UserLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70352E26721B760004DEF5 /* UserLoaderService.swift */; };
 		3F703532267221F10004DEF5 /* UserRegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F703531267221F10004DEF5 /* UserRegisterService.swift */; };
-		3F703536267223CA0004DEF5 /* RegisterResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F703535267223CA0004DEF5 /* RegisterResponseModel.swift */; };
+		3F703536267223CA0004DEF5 /* PhpResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F703535267223CA0004DEF5 /* PhpResponseModel.swift */; };
+		3F703539267244B90004DEF5 /* FixtureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F703538267244B90004DEF5 /* FixtureModel.swift */; };
+		3F70353C267245DB0004DEF5 /* FixtureLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70353B267245DB0004DEF5 /* FixtureLoaderService.swift */; };
+		3F70353F267251290004DEF5 /* FixtureAddingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70353E267251290004DEF5 /* FixtureAddingService.swift */; };
+		3F70354326725CEB0004DEF5 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70354226725CEB0004DEF5 /* ImageLoaderService.swift */; };
+		3F70354726725FB40004DEF5 /* RowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70354626725FB40004DEF5 /* RowViewModel.swift */; };
+		3F70354B267262D30004DEF5 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70354A267262D30004DEF5 /* RowView.swift */; };
+		3F70355226726A830004DEF5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70355126726A830004DEF5 /* LoginViewModel.swift */; };
+		3F70355526726F610004DEF5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70355426726F610004DEF5 /* LoginView.swift */; };
+		3F70355826726FF90004DEF5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70355726726FF90004DEF5 /* RegisterView.swift */; };
+		3F70355B267270730004DEF5 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70355A267270730004DEF5 /* MainTabView.swift */; };
+		3F70355E267287C40004DEF5 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F70355D267287C40004DEF5 /* RegisterViewModel.swift */; };
+		3F703561267297090004DEF5 /* ListSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F703560267297090004DEF5 /* ListSearchView.swift */; };
+		3F703564267297180004DEF5 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F703563267297180004DEF5 /* FavouritesView.swift */; };
+		3F7035672672972E0004DEF5 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7035662672972E0004DEF5 /* AddView.swift */; };
+		3F70356A267298A60004DEF5 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F703569267298A60004DEF5 /* TabViewModel.swift */; };
+		3FA9B43F26734F3C000A3233 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9B43E26734F3C000A3233 /* Repository.swift */; };
+		3FA9B44226735056000A3233 /* ListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9B44126735056000A3233 /* ListSearchViewModel.swift */; };
+		3FAF78152673603200666059 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF78142673603200666059 /* DetailView.swift */; };
 		3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */; };
 		3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9D2671492B003AF4D3 /* ContentView.swift */; };
 		3FBE1DA02671492C003AF4D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9F2671492C003AF4D3 /* Assets.xcassets */; };
@@ -24,7 +42,25 @@
 		3F70352B2671FDD30004DEF5 /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		3F70352E26721B760004DEF5 /* UserLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoaderService.swift; sourceTree = "<group>"; };
 		3F703531267221F10004DEF5 /* UserRegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterService.swift; sourceTree = "<group>"; };
-		3F703535267223CA0004DEF5 /* RegisterResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponseModel.swift; sourceTree = "<group>"; };
+		3F703535267223CA0004DEF5 /* PhpResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhpResponseModel.swift; sourceTree = "<group>"; };
+		3F703538267244B90004DEF5 /* FixtureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureModel.swift; sourceTree = "<group>"; };
+		3F70353B267245DB0004DEF5 /* FixtureLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureLoaderService.swift; sourceTree = "<group>"; };
+		3F70353E267251290004DEF5 /* FixtureAddingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureAddingService.swift; sourceTree = "<group>"; };
+		3F70354226725CEB0004DEF5 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
+		3F70354626725FB40004DEF5 /* RowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewModel.swift; sourceTree = "<group>"; };
+		3F70354A267262D30004DEF5 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		3F70355126726A830004DEF5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3F70355426726F610004DEF5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3F70355726726FF90004DEF5 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3F70355A267270730004DEF5 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		3F70355D267287C40004DEF5 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		3F703560267297090004DEF5 /* ListSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSearchView.swift; sourceTree = "<group>"; };
+		3F703563267297180004DEF5 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		3F7035662672972E0004DEF5 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		3F703569267298A60004DEF5 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		3FA9B43E26734F3C000A3233 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		3FA9B44126735056000A3233 /* ListSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSearchViewModel.swift; sourceTree = "<group>"; };
+		3FAF78142673603200666059 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3FBE1D982671492B003AF4D3 /* FindMyFixture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyFixture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyFixtureApp.swift; sourceTree = "<group>"; };
 		3FBE1D9D2671492B003AF4D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,9 +86,46 @@
 			children = (
 				3F7035282671FD9C0004DEF5 /* UserModel.swift */,
 				3F70352B2671FDD30004DEF5 /* LoginResponseModel.swift */,
-				3F703535267223CA0004DEF5 /* RegisterResponseModel.swift */,
+				3F703535267223CA0004DEF5 /* PhpResponseModel.swift */,
+				3F703538267244B90004DEF5 /* FixtureModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3F70354526725F8A0004DEF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F70354626725FB40004DEF5 /* RowViewModel.swift */,
+				3F70355126726A830004DEF5 /* LoginViewModel.swift */,
+				3F70355D267287C40004DEF5 /* RegisterViewModel.swift */,
+				3F703569267298A60004DEF5 /* TabViewModel.swift */,
+				3FA9B44126735056000A3233 /* ListSearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3F703549267262C40004DEF5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F70354A267262D30004DEF5 /* RowView.swift */,
+				3F70355426726F610004DEF5 /* LoginView.swift */,
+				3F70355726726FF90004DEF5 /* RegisterView.swift */,
+				3F70355A267270730004DEF5 /* MainTabView.swift */,
+				3F703560267297090004DEF5 /* ListSearchView.swift */,
+				3F703563267297180004DEF5 /* FavouritesView.swift */,
+				3F7035662672972E0004DEF5 /* AddView.swift */,
+				3FAF78142673603200666059 /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3FA9B43C26734F26000A3233 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3FA9B43E26734F3C000A3233 /* Repository.swift */,
+				3F7035272671FC0A0004DEF5 /* Model */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		3FBE1D8F2671492B003AF4D3 = {
@@ -74,7 +147,9 @@
 		3FBE1D9A2671492B003AF4D3 /* FindMyFixture */ = {
 			isa = PBXGroup;
 			children = (
-				3F7035272671FC0A0004DEF5 /* Model */,
+				3F703549267262C40004DEF5 /* Views */,
+				3F70354526725F8A0004DEF5 /* ViewModel */,
+				3FA9B43C26734F26000A3233 /* Data */,
 				3FBE1DAB26714E3E003AF4D3 /* Services */,
 				3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */,
 				3FBE1D9D2671492B003AF4D3 /* ContentView.swift */,
@@ -99,6 +174,9 @@
 				3FBE1DAC267155D8003AF4D3 /* LoginService.swift */,
 				3F70352E26721B760004DEF5 /* UserLoaderService.swift */,
 				3F703531267221F10004DEF5 /* UserRegisterService.swift */,
+				3F70353B267245DB0004DEF5 /* FixtureLoaderService.swift */,
+				3F70353E267251290004DEF5 /* FixtureAddingService.swift */,
+				3F70354226725CEB0004DEF5 /* ImageLoaderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -172,13 +250,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F70354726725FB40004DEF5 /* RowViewModel.swift in Sources */,
+				3F70354B267262D30004DEF5 /* RowView.swift in Sources */,
+				3F703539267244B90004DEF5 /* FixtureModel.swift in Sources */,
 				3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */,
 				3F703532267221F10004DEF5 /* UserRegisterService.swift in Sources */,
+				3F70353F267251290004DEF5 /* FixtureAddingService.swift in Sources */,
+				3F7035672672972E0004DEF5 /* AddView.swift in Sources */,
+				3FAF78152673603200666059 /* DetailView.swift in Sources */,
+				3F70356A267298A60004DEF5 /* TabViewModel.swift in Sources */,
 				3F70352F26721B760004DEF5 /* UserLoaderService.swift in Sources */,
-				3F703536267223CA0004DEF5 /* RegisterResponseModel.swift in Sources */,
+				3FA9B44226735056000A3233 /* ListSearchViewModel.swift in Sources */,
+				3F703536267223CA0004DEF5 /* PhpResponseModel.swift in Sources */,
+				3F70355E267287C40004DEF5 /* RegisterViewModel.swift in Sources */,
+				3FA9B43F26734F3C000A3233 /* Repository.swift in Sources */,
+				3F70355826726FF90004DEF5 /* RegisterView.swift in Sources */,
+				3F70355226726A830004DEF5 /* LoginViewModel.swift in Sources */,
+				3F70354326725CEB0004DEF5 /* ImageLoaderService.swift in Sources */,
+				3F703561267297090004DEF5 /* ListSearchView.swift in Sources */,
 				3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */,
 				3F7035292671FD9C0004DEF5 /* UserModel.swift in Sources */,
 				3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */,
+				3F70353C267245DB0004DEF5 /* FixtureLoaderService.swift in Sources */,
+				3F70355526726F610004DEF5 /* LoginView.swift in Sources */,
+				3F70355B267270730004DEF5 /* MainTabView.swift in Sources */,
+				3F703564267297180004DEF5 /* FavouritesView.swift in Sources */,
 				3F70352C2671FDD30004DEF5 /* LoginResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

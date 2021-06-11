@@ -27,7 +27,7 @@ class LoginService: ObservableObject {
             guard error == nil else { return }
             guard let httpResponse: HTTPURLResponse = response as? HTTPURLResponse else { return }
             let statusCode = httpResponse.statusCode
-            print("statusCode: \(statusCode)")
+//            print("statusCode: \(statusCode)")
             guard (200..<299).contains(statusCode) else { return }
             guard let data = data else { return }
             do {
@@ -36,9 +36,11 @@ class LoginService: ObservableObject {
                     guard let loginData = dataResponse.first else { return }
                     if loginData.state == "3" {
                         self.loginSucces = true
+                    } else {
+                        self.loginSucces = false
                     }
                     completion(self.loginSucces, loginData.message, Int(loginData.userId) ?? 0)
-                    print("\(loginData)")
+//                    print("\(loginData)")
                 }
             } catch DecodingError.keyNotFound(let key, let context) {
                 Swift.print("could not find key \(key) in JSON: \(context.debugDescription)")

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct RegisterResponse: Codable {
+struct PhpResponse: Codable {
     let state: String
     let message: String
 }

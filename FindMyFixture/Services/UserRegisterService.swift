@@ -27,11 +27,11 @@ class UserRegisterService: ObservableObject {
             guard error == nil else { return }
             guard let httpResponse: HTTPURLResponse = response as? HTTPURLResponse else { return }
             let statusCode = httpResponse.statusCode
-            print("statusCode: \(statusCode)")
+//            print("statusCode: \(statusCode)")
             guard (200..<299).contains(statusCode) else { return }
             guard let data = data else { return }
             do {
-                let dataResponse = try self.decoder.decode([RegisterResponse].self, from: data)
+                let dataResponse = try self.decoder.decode([PhpResponse].self, from: data)
                 DispatchQueue.main.async {
                     guard let registerResponse = dataResponse.first else { return }
                     completion(registerResponse.message)
