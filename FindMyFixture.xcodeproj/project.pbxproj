@@ -31,6 +31,7 @@
 		3FA9B44226735056000A3233 /* ListSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA9B44126735056000A3233 /* ListSearchViewModel.swift */; };
 		3FAF78152673603200666059 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF78142673603200666059 /* DetailView.swift */; };
 		3FAF781C26738AA100666059 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF781B26738AA100666059 /* DetailViewModel.swift */; };
+		3FAF781F26738F5E00666059 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF781E26738F5E00666059 /* AddViewModel.swift */; };
 		3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */; };
 		3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9D2671492B003AF4D3 /* ContentView.swift */; };
 		3FBE1DA02671492C003AF4D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9F2671492C003AF4D3 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		3FA9B44126735056000A3233 /* ListSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSearchViewModel.swift; sourceTree = "<group>"; };
 		3FAF78142673603200666059 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3FAF781B26738AA100666059 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		3FAF781E26738F5E00666059 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		3FBE1D982671492B003AF4D3 /* FindMyFixture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyFixture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBE1D9B2671492B003AF4D3 /* FindMyFixtureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyFixtureApp.swift; sourceTree = "<group>"; };
 		3FBE1D9D2671492B003AF4D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3F703569267298A60004DEF5 /* TabViewModel.swift */,
 				3FA9B44126735056000A3233 /* ListSearchViewModel.swift */,
 				3FAF781B26738AA100666059 /* DetailViewModel.swift */,
+				3FAF781E26738F5E00666059 /* AddViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				3F70354726725FB40004DEF5 /* RowViewModel.swift in Sources */,
 				3F70354B267262D30004DEF5 /* RowView.swift in Sources */,
+				3FAF781F26738F5E00666059 /* AddViewModel.swift in Sources */,
 				3F703539267244B90004DEF5 /* FixtureModel.swift in Sources */,
 				3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */,
 				3FAF781C26738AA100666059 /* DetailViewModel.swift in Sources */,

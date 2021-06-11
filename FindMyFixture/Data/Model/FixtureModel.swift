@@ -9,15 +9,25 @@ import Foundation
 
 
 struct Fixture: Codable {
-    let id: Int
-    let name, producer: String
-    let power, powerLight, headMover, goboWheels: Int
-    let prisms: Int
-    let minZoom, maxZoom: Double
-    let colorSystem, dmxModes, minDmx, maxDmx: Int
-    let weight: Int
-    let comment: String
-    let imageURL: String
+//    let id: Int
+//    let name, producer: String
+//    let power, powerLight, headMover, goboWheels: Int
+//    let prisms: Int
+//    let minZoom, maxZoom: Double
+//    let colorSystem, dmxModes, minDmx, maxDmx: Int
+//    let weight: Int
+//    let comment: String
+//    let imageURL: String
+    
+    var id: Int
+    var name, producer: String
+    var power, powerLight, headMover, goboWheels: Int
+    var prisms: Int
+    var minZoom, maxZoom: Double
+    var colorSystem, dmxModes, minDmx, maxDmx: Int
+    var weight: Int
+    var comment: String
+    var imageURL: String
     
     
     var colorSysEnum: ColorSystem {

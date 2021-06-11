@@ -35,7 +35,8 @@ class FixtureAdding {
         &maxdmx=\(fixture.maxDmx)\
         &maxdmx=\(fixture.maxDmx)\
         &weight=\(fixture.weight)\
-        &comment=\(fixture.comment)
+        &comment=\(fixture.comment)\
+        &imageurl=\(fixture.imageURL)
         """
         request.httpBody = bodyData.data(using: String.Encoding.utf8)
         URLSession.shared.dataTask(with: request) { data, response, error in
