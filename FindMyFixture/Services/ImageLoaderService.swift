@@ -15,13 +15,12 @@ class ImageLoaderService {
     private var cancellables = Set<AnyCancellable>()
     static var counter: Int = 0
     
-    public func loadImage(for urlString: String, completionHandler: @escaping (Result<UIImage, LoadError>) -> Void) {
+    public func loadImage(for urlString: String, completionHandler: @escaping (Result<UIImage, FmfLoadError>) -> Void) {
         if let image = PhotoCacheManager.shared.getImage(for: urlString) {
             completionHandler(.success(image))
             return
         }
         guard let url: URL = URL(string: urlString)  else { return completionHandler(.failure(.urlLoadError))}
-
         URLSession.shared.dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
             .replaceError(with: nil)
@@ -72,8 +71,4 @@ class PhotoCacheManager {
 
 
 
-enum LoadError: String, Error {
-    case urlLoadError
-    case imageLoadError
-    case jsonCategoryLoadError
-}
+

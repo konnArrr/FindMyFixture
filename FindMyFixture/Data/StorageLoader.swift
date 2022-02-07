@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 
 class StorageLoader {
+    
     static let shared = StorageLoader()
     @Published var favouriteFixtures = [Fixture]()
     @AppStorage("favouriteFixtures") private var dataForAppStorage: Data = Data()

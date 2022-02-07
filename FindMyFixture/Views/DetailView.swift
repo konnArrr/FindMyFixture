@@ -18,7 +18,6 @@ struct DetailView: View {
     @StateObject var viewModel = DetailViewModel()
     
     
-    
     var body: some View {
         VStack {
             if let image = fixtureImage {
@@ -114,7 +113,7 @@ struct DetailView: View {
             ToolbarItem {
                 if showAddButton {
                     Button {
-                        sendAddAddMsgToStorageLoader()
+                        sendAddMsgToStorageLoader()
                     } label: {
                         Text("add to favourites")
                     }                    
@@ -130,7 +129,7 @@ struct DetailView: View {
         
     }
     
-    private func sendAddAddMsgToStorageLoader() {
+    private func sendAddMsgToStorageLoader() {
         NotificationCenter.default.post(name: .addFavouriteFixtureMessage, object: fixture)
         print("add pressed")
     }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-class LoginService: ObservableObject {
+class LoginService {
     
     private let decoder = JSONDecoder()
     private var loginSucces: Bool = false

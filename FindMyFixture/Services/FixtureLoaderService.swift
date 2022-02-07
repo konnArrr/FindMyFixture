@@ -15,7 +15,7 @@ enum HTTPError: LocalizedError {
 
 
 
-class FixtureLoader: ObservableObject {
+class FixtureLoader {
     
 
     private var cancellable: AnyCancellable?
