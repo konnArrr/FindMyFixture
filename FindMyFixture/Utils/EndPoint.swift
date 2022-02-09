@@ -72,6 +72,7 @@ extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
     
     static var fixture: Self {
         Endpoint(path: "get_all_fixtures.php")
+        // test comment
     }
     
 }
