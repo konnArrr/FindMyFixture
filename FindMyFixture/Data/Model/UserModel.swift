@@ -7,9 +7,12 @@
 
 import Foundation
 
-struct User: Codable {
-    let id: Int
+public struct User: Model, Equatable {
+    public let id: Int
     let username, password: String
     let adminRights: Int
     let registerDate: String
+    let registerDate: String?
 }
+
+

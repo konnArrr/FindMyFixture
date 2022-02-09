@@ -40,8 +40,29 @@
 		3FBE1DA02671492C003AF4D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE1D9F2671492C003AF4D3 /* Assets.xcassets */; };
 		3FBE1DA32671492C003AF4D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE1DA22671492C003AF4D3 /* Preview Assets.xcassets */; };
 		3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1DAC267155D8003AF4D3 /* LoginService.swift */; };
+		9E78D1D427B286020077AB05 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1D327B286020077AB05 /* RepositoryProtocol.swift */; };
+		9E78D1D627B28C360077AB05 /* NetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1D527B28C360077AB05 /* NetworkResponseModel.swift */; };
+		9E78D1E527B29EF90077AB05 /* FmfUrlPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1E427B29EF90077AB05 /* FmfUrlPaths.swift */; };
+		9E78D1E727B2A8A10077AB05 /* URLHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1E627B2A8A10077AB05 /* URLHost.swift */; };
+		9E78D1E927B2A8BD0077AB05 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1E827B2A8BD0077AB05 /* NetworkConstants.swift */; };
+		9E78D1EB27B2B3DD0077AB05 /* RequestDataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1EA27B2B3DD0077AB05 /* RequestDataKeys.swift */; };
+		9EA41C2B27B3E42A0063A831 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA41C2427B3DF8E0063A831 /* Mock.swift */; };
+		9EA41C2C27B3E4380063A831 /* FindMyFixtureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1DD27B29B450077AB05 /* FindMyFixtureTests.swift */; };
 		9ED5730027B158D80038F7C3 /* FmfError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED572FF27B158D80038F7C3 /* FmfError.swift */; };
+		9ED5730227B1603D0038F7C3 /* ModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5730127B1603D0038F7C3 /* ModelLoader.swift */; };
+		9ED5730427B166160038F7C3 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5730327B166160038F7C3 /* EndPoint.swift */; };
+		9ED5730727B166D80038F7C3 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5730627B166D80038F7C3 /* URLSession+Extensions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9E78D1DF27B29B450077AB05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FBE1D902671492B003AF4D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FBE1D972671492B003AF4D3;
+			remoteInfo = FindMyFixture;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3F7035282671FD9C0004DEF5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -79,11 +100,30 @@
 		3FBE1DA22671492C003AF4D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FBE1DA42671492C003AF4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FBE1DAC267155D8003AF4D3 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		9E78D1D327B286020077AB05 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
+		9E78D1D527B28C360077AB05 /* NetworkResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseModel.swift; sourceTree = "<group>"; };
+		9E78D1DB27B29B450077AB05 /* FindMyFixtureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindMyFixtureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E78D1DD27B29B450077AB05 /* FindMyFixtureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyFixtureTests.swift; sourceTree = "<group>"; };
+		9E78D1E427B29EF90077AB05 /* FmfUrlPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmfUrlPaths.swift; sourceTree = "<group>"; };
+		9E78D1E627B2A8A10077AB05 /* URLHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHost.swift; sourceTree = "<group>"; };
+		9E78D1E827B2A8BD0077AB05 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		9E78D1EA27B2B3DD0077AB05 /* RequestDataKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDataKeys.swift; sourceTree = "<group>"; };
+		9EA41C2427B3DF8E0063A831 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		9ED572FF27B158D80038F7C3 /* FmfError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmfError.swift; sourceTree = "<group>"; };
+		9ED5730127B1603D0038F7C3 /* ModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLoader.swift; sourceTree = "<group>"; };
+		9ED5730327B166160038F7C3 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		9ED5730627B166D80038F7C3 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3FBE1D952671492B003AF4D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E78D1D827B29B450077AB05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -96,10 +136,12 @@
 		3F7035272671FC0A0004DEF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9EA41C2427B3DF8E0063A831 /* Mock.swift */,
 				3F7035282671FD9C0004DEF5 /* UserModel.swift */,
 				3F70352B2671FDD30004DEF5 /* LoginResponseModel.swift */,
 				3F703535267223CA0004DEF5 /* PhpResponseModel.swift */,
 				3F703538267244B90004DEF5 /* FixtureModel.swift */,
+				9E78D1D527B28C360077AB05 /* NetworkResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				3FBE1D9A2671492B003AF4D3 /* FindMyFixture */,
+				9E78D1DC27B29B450077AB05 /* FindMyFixtureTests */,
 				3FBE1D992671492B003AF4D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3FBE1D982671492B003AF4D3 /* FindMyFixture.app */,
+				9E78D1DB27B29B450077AB05 /* FindMyFixtureTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +208,7 @@
 		3FBE1D9A2671492B003AF4D3 /* FindMyFixture */ = {
 			isa = PBXGroup;
 			children = (
+				9ED5730527B166740038F7C3 /* Extension */,
 				9ED572FE27B158C00038F7C3 /* Utils */,
 				3F703549267262C40004DEF5 /* Views */,
 				3F70354526725F8A0004DEF5 /* ViewModel */,
@@ -195,16 +240,39 @@
 				3F70353B267245DB0004DEF5 /* FixtureLoaderService.swift */,
 				3F70353E267251290004DEF5 /* FixtureAddingService.swift */,
 				3F70354226725CEB0004DEF5 /* ImageLoaderService.swift */,
+				9E78D1E427B29EF90077AB05 /* FmfUrlPaths.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9E78D1DC27B29B450077AB05 /* FindMyFixtureTests */ = {
+			isa = PBXGroup;
+			children = (
+				9E78D1DD27B29B450077AB05 /* FindMyFixtureTests.swift */,
+			);
+			path = FindMyFixtureTests;
 			sourceTree = "<group>";
 		};
 		9ED572FE27B158C00038F7C3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				9ED572FF27B158D80038F7C3 /* FmfError.swift */,
+				9ED5730127B1603D0038F7C3 /* ModelLoader.swift */,
+				9ED5730327B166160038F7C3 /* EndPoint.swift */,
+				9E78D1D327B286020077AB05 /* RepositoryProtocol.swift */,
+				9E78D1E627B2A8A10077AB05 /* URLHost.swift */,
+				9E78D1E827B2A8BD0077AB05 /* NetworkConstants.swift */,
+				9E78D1EA27B2B3DD0077AB05 /* RequestDataKeys.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9ED5730527B166740038F7C3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9ED5730627B166D80038F7C3 /* URLSession+Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,17 +295,39 @@
 			productReference = 3FBE1D982671492B003AF4D3 /* FindMyFixture.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9E78D1DA27B29B450077AB05 /* FindMyFixtureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E78D1E127B29B450077AB05 /* Build configuration list for PBXNativeTarget "FindMyFixtureTests" */;
+			buildPhases = (
+				9E78D1D727B29B450077AB05 /* Sources */,
+				9E78D1D827B29B450077AB05 /* Frameworks */,
+				9E78D1D927B29B450077AB05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E78D1E027B29B450077AB05 /* PBXTargetDependency */,
+			);
+			name = FindMyFixtureTests;
+			productName = FindMyFixtureTests;
+			productReference = 9E78D1DB27B29B450077AB05 /* FindMyFixtureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3FBE1D902671492B003AF4D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					3FBE1D972671492B003AF4D3 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					9E78D1DA27B29B450077AB05 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 3FBE1D972671492B003AF4D3;
 					};
 				};
 			};
@@ -255,6 +345,7 @@
 			projectRoot = "";
 			targets = (
 				3FBE1D972671492B003AF4D3 /* FindMyFixture */,
+				9E78D1DA27B29B450077AB05 /* FindMyFixtureTests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +360,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9E78D1D927B29B450077AB05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -279,29 +377,39 @@
 				3F70354726725FB40004DEF5 /* RowViewModel.swift in Sources */,
 				3F70354B267262D30004DEF5 /* RowView.swift in Sources */,
 				3FAF781F26738F5E00666059 /* AddViewModel.swift in Sources */,
+				9ED5730227B1603D0038F7C3 /* ModelLoader.swift in Sources */,
 				3F703539267244B90004DEF5 /* FixtureModel.swift in Sources */,
+				9E78D1D627B28C360077AB05 /* NetworkResponseModel.swift in Sources */,
+				9ED5730727B166D80038F7C3 /* URLSession+Extensions.swift in Sources */,
 				3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */,
 				3FAF781C26738AA100666059 /* DetailViewModel.swift in Sources */,
 				3F703532267221F10004DEF5 /* UserRegisterService.swift in Sources */,
+				9E78D1E727B2A8A10077AB05 /* URLHost.swift in Sources */,
 				3F70353F267251290004DEF5 /* FixtureAddingService.swift in Sources */,
 				3FAF78282673CFEB00666059 /* RowViewFavourites.swift in Sources */,
 				3F7035672672972E0004DEF5 /* AddView.swift in Sources */,
 				3FAF78152673603200666059 /* DetailView.swift in Sources */,
+				9E78D1E527B29EF90077AB05 /* FmfUrlPaths.swift in Sources */,
 				3F70356A267298A60004DEF5 /* TabViewModel.swift in Sources */,
 				9ED5730027B158D80038F7C3 /* FmfError.swift in Sources */,
 				3F70352F26721B760004DEF5 /* UserLoaderService.swift in Sources */,
 				3FA9B44226735056000A3233 /* ListSearchViewModel.swift in Sources */,
+				9E78D1D427B286020077AB05 /* RepositoryProtocol.swift in Sources */,
 				3F703536267223CA0004DEF5 /* PhpResponseModel.swift in Sources */,
 				3F70355E267287C40004DEF5 /* RegisterViewModel.swift in Sources */,
 				3FA9B43F26734F3C000A3233 /* Repository.swift in Sources */,
 				3F70355826726FF90004DEF5 /* RegisterView.swift in Sources */,
 				3F70355226726A830004DEF5 /* LoginViewModel.swift in Sources */,
 				3F70354326725CEB0004DEF5 /* ImageLoaderService.swift in Sources */,
+				9ED5730427B166160038F7C3 /* EndPoint.swift in Sources */,
 				3F703561267297090004DEF5 /* ListSearchView.swift in Sources */,
 				3FAF78252673C2AE00666059 /* FavouritesViewModel.swift in Sources */,
+				9EA41C2B27B3E42A0063A831 /* Mock.swift in Sources */,
 				3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */,
 				3F7035292671FD9C0004DEF5 /* UserModel.swift in Sources */,
+				9E78D1E927B2A8BD0077AB05 /* NetworkConstants.swift in Sources */,
 				3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */,
+				9E78D1EB27B2B3DD0077AB05 /* RequestDataKeys.swift in Sources */,
 				3FAF78222673C11400666059 /* StorageLoader.swift in Sources */,
 				3F70353C267245DB0004DEF5 /* FixtureLoaderService.swift in Sources */,
 				3F70355526726F610004DEF5 /* LoginView.swift in Sources */,
@@ -311,7 +419,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9E78D1D727B29B450077AB05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EA41C2C27B3E4380063A831 /* FindMyFixtureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9E78D1E027B29B450077AB05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FBE1D972671492B003AF4D3 /* FindMyFixture */;
+			targetProxy = 9E78D1DF27B29B450077AB05 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3FBE1DA52671492C003AF4D3 /* Debug */ = {
@@ -474,6 +598,56 @@
 			};
 			name = Release;
 		};
+		9E78D1E227B29B450077AB05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y25HCVP446;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kombinat-luk.FindMyFixtureTests";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindMyFixture.app/FindMyFixture";
+			};
+			name = Debug;
+		};
+		9E78D1E327B29B450077AB05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y25HCVP446;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kombinat-luk.FindMyFixtureTests";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FindMyFixture.app/FindMyFixture";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -491,6 +665,15 @@
 			buildConfigurations = (
 				3FBE1DA82671492C003AF4D3 /* Debug */,
 				3FBE1DA92671492C003AF4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E78D1E127B29B450077AB05 /* Build configuration list for PBXNativeTarget "FindMyFixtureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E78D1E227B29B450077AB05 /* Debug */,
+				9E78D1E327B29B450077AB05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
