@@ -1,0 +1,59 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
+/Build
+/DerivedData
+/.tmp
+/Changelog.txt
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+Developer.xcconfig
+
+# We will generate All schemes via xcodegen soon.
+*.xcodeproj
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+.bundle
+/.idea
+.DS_Store
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+
+# CocoaPods
+/Pods
+
+# Brew
+Brewfile.lock.json
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+/Carthage
+
+# Artifacts from the automated build process
+compile_commands.json
+*.dSYM.zip
+
+# Code Coverage Files
+*.gcno
+*.gcda
+
+# JS
+/node_modules
+/yarn-error.log
