@@ -79,35 +79,35 @@ class FindMyFixtureTests: XCTestCase {
     }
     
     func testLoadUser() {
-        let expectation = self.expectation(description: "Await Publisher")
-        var user: User?
-        
-        let cancable = URLSession.shared.publisher(endpoint: .getUserById(id: "1"), using: [RequestDataKeys.httpMethod: HttpMethod.POST, RequestDataKeys.body: ["id" : "1"]])
-            .sink(receiveCompletion: { (completion) in
-                switch completion {
-                case .failure(let error):
-                    fatalError(error.localizedDescription)
-                case .finished:
-                    break
-                }
-                expectation.fulfill()
-            }, receiveValue: { (newUser) in
-                user = newUser.first
-            })
-        
-        waitForExpectations(timeout: 10)
-        XCTAssertNotNil(user)
-        cancable.cancel()
+//        let expectation = self.expectation(description: "Await Publisher")
+//        var user: User?
+//        
+//        let cancable = URLSession.shared.publisher(endpoint: .getUserById(id: "1"), using: [RequestDataKeys.httpMethod: HttpMethod.POST, RequestDataKeys.body: ["id" : "1"]])
+//            .sink(receiveCompletion: { (completion) in
+//                switch completion {
+//                case .failure(let error):
+//                    fatalError(error.localizedDescription)
+//                case .finished:
+//                    break
+//                }
+//                expectation.fulfill()
+//            }, receiveValue: { (newUser) in
+//                user = newUser.first
+//            })
+//        
+//        waitForExpectations(timeout: 10)
+//        XCTAssertNotNil(user)
+//        cancable.cancel()
     }
     
     func testUserModelLoader() {
         let expectation = self.expectation(description: "await api answer")
         var testUser: User?
         
-        ModelLoader.shared.loadUserBy(id: "1") { result in
+        ModelLoader.shared.loadModel(by: "1", endPoint: Endpoint<EndpointKinds.Public, [User]>.getAll()) { result in
             switch result {
             case .success(let user):
-                testUser = user
+                testUser = user.first
             case .failure(let error):
                 print("error: \(error)")
             }
@@ -117,6 +117,26 @@ class FindMyFixtureTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssertNotNil(testUser)
         XCTAssertEqual(testUser, Mock.User.validUser)
+    }
+    
+    
+    func testFixtureModelLoader() {
+        let expectation = self.expectation(description: "await api answer")
+        var testFixture: Fixture?
+        
+        ModelLoader.shared.loadModel(by: "1", endPoint: Endpoint<EndpointKinds.Public, [Fixture]>.getAll()) { result in
+            switch result {
+            case .success(let user):
+                testFixture = user.first
+            case .failure(let error):
+                print("error: \(error)")
+            }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertNotNil(testFixture)
+        XCTAssertEqual(testFixture, Mock.Fixture.validFixture)
     }
     
     

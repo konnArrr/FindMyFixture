@@ -7,7 +7,10 @@
 
 import Foundation
 
-public struct User: Model, Equatable {
+
+
+
+public struct User: Codable, Equatable {
     public let id: Int
     let username, password: String
     let adminRights: Int
@@ -15,4 +18,4 @@ public struct User: Model, Equatable {
 
 }
 
-
+typealias UserData = [User]

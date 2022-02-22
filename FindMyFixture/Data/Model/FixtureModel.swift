@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Fixture: Model {
+struct Fixture: Codable, Equatable{
 //    let id: Int
 //    let name, producer: String
 //    let power, powerLight, headMover, goboWheels: Int

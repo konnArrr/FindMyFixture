@@ -69,7 +69,8 @@ extension Endpoint {
 
 extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
     
-    static var fixture: Self {
+    
+    static func getAll() -> Self {
         Endpoint(path: "get_all_fixtures.php")
     }
     
@@ -78,9 +79,14 @@ extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
 
 extension Endpoint where Kind == EndpointKinds.Public, Response == [User] {
     
-    static func getUserById(id: String) -> Self {
+    static func getUserById() -> Self {
         Endpoint(path: FmfUrlPaths.getUserById.rawValue)
     }
+    
+    static func getAll() -> Self {
+        Endpoint(path: FmfUrlPaths.getUserById.rawValue)
+    }
+    
 }
 
 
