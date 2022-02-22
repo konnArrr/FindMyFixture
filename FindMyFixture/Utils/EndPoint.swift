@@ -14,8 +14,7 @@ protocol EndpointKind {
 
 enum EndpointKinds {
     enum Public: EndpointKind {
-        static func prepare(_ request: inout URLRequest, with data: [RequestDataKeys:Any]) {
-            
+        static func prepare(_ request: inout URLRequest, with data: [RequestDataKeys:Any]) {            
            
             // ugly hack
             if let bodyDic = data[.body] as? [AnyHashable : String], let id = bodyDic["id"] as String?,  let idData = "id=\(id)".data(using: .utf8) {
@@ -72,12 +71,6 @@ extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
     
     static var fixture: Self {
         Endpoint(path: "get_all_fixtures.php")
-        // test comment
-        // test comment
-        // test comment
-
-        
-
     }
     
 }

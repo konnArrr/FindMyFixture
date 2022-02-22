@@ -12,7 +12,7 @@ public struct User: Model, Equatable {
     let username, password: String
     let adminRights: Int
     let registerDate: String
-    let registerDate: String?
+
 }
 
 
