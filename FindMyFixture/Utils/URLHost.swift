@@ -13,11 +13,11 @@ struct URLHost: RawRepresentable {
 
 extension URLHost {
     static var staging: Self {
-        URLHost(rawValue: NetworkConstants.baseHost.rawValue)
+        URLHost(rawValue: URLConstants.baseHost.rawValue)
     }
 
     static var production: Self {
-        URLHost(rawValue: NetworkConstants.baseHost.rawValue)
+        URLHost(rawValue: URLConstants.baseHost.rawValue)
     }
 
     static var `default`: Self {
@@ -31,12 +31,12 @@ extension URLHost {
 
 extension URL {
     static var staging: URL {
-        return URL(string: NetworkConstants.baseHttpScheme.rawValue + "://" + NetworkConstants.baseHost.rawValue + NetworkConstants.basePath.rawValue)!
+        return URL(string: URLConstants.baseHttpScheme.rawValue + "://" + URLConstants.baseHost.rawValue + URLConstants.basePath.rawValue)!
     
     }
 
     static var production: URL {
-        return URL(string: NetworkConstants.baseHttpScheme.rawValue + "://" + NetworkConstants.baseHost.rawValue + NetworkConstants.basePath.rawValue)!
+        return URL(string: URLConstants.baseHttpScheme.rawValue + "://" + URLConstants.baseHost.rawValue + URLConstants.basePath.rawValue)!
     }
 
     static var `default`: URL {

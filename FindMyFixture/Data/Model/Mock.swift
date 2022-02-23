@@ -14,6 +14,6 @@ enum Mock {
     }
     
     enum Fixture {
-        static let validFixture = FindMyFixture.Fixture(id: 1, name: "test", producer: "bla", power: 12, powerLight: 13, headMover: 0, goboWheels: 5, prisms: 4, minZoom: 12.3, maxZoom: 13.3, colorSystem: 3, dmxModes: 1, minDmx: 23, maxDmx: 24, weight: 12, comment: "", imageURL: "")
+        static let validFixture = FindMyFixture.Fixture(id: 1, name: "Quantum", producer: "Martin", power: 1200, powerLight: 700, headMover: 1, goboWheels: 2, prisms: 3, minZoom: 15.0, maxZoom: 45.0, colorSystem: 1, dmxModes: 2, minDmx: 27, maxDmx: 45, weight: 26, comment: "Klassiker und macht was er soll", imageURL: "http://hasashi.bplaced.net/findmyfixture/images/default_mh.png")
     }
 }

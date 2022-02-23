@@ -7,11 +7,18 @@
 
 import Foundation
 
-enum NetworkConstants: String {
+enum URLConstants: String {
     case baseHttpScheme = "http"
     case baseHost = "hasashi.bplaced.net"
     case basePath = "/findmyfixture/php/"
 }
+
+
+enum RequestDataKeys: String {
+    case httpMethod
+    case body
+}
+
 
 enum HttpMethod : String {
    case  GET

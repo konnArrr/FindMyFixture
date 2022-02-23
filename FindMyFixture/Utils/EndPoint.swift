@@ -16,11 +16,11 @@ enum EndpointKinds {
     enum Public: EndpointKind {
         static func prepare(_ request: inout URLRequest, with data: [RequestDataKeys:Any]) {            
            
-            // ugly hack
-            if let bodyDic = data[.body] as? [AnyHashable : String], let id = bodyDic["id"] as String?,  let idData = "id=\(id)".data(using: .utf8) {
-                request.httpBody = idData
-            }
-            
+            // add specific requestData to request
+            if let bodyDic = data[.body] as? [AnyHashable : Any] {
+                let jsonData = try? JSONSerialization.data(withJSONObject: bodyDic, options: .prettyPrinted)
+                request.httpBody = jsonData
+            }            
             if let httpMethod = data[RequestDataKeys.httpMethod] as? HttpMethod {
                 request.httpMethod = httpMethod.rawValue
             }
@@ -36,15 +36,27 @@ enum EndpointKinds {
 struct Endpoint<Kind: EndpointKind, Response: Decodable> {
     var path: String
     var queryItems = [URLQueryItem]()
+    var httpMethod: HttpMethod
+    var bodyData: [AnyHashable : Any]?
+    
+    
+    var requestData: [RequestDataKeys:Any] {
+        var requestData: [RequestDataKeys:Any] = [:]
+        requestData[RequestDataKeys.httpMethod] = httpMethod
+        if let bodyData = bodyData {
+            requestData[RequestDataKeys.body] = bodyData
+        }
+        return requestData
+    }
 }
 
 extension Endpoint {
     
     var url: URL {
         var components = URLComponents()
-        components.scheme = NetworkConstants.baseHttpScheme.rawValue
-        components.host = NetworkConstants.baseHost.rawValue
-        components.path = NetworkConstants.basePath.rawValue + path
+        components.scheme = URLConstants.baseHttpScheme.rawValue
+        components.host = URLConstants.baseHost.rawValue
+        components.path = URLConstants.basePath.rawValue + path
         if !queryItems.isEmpty {
             components.queryItems = queryItems
         }
@@ -69,9 +81,8 @@ extension Endpoint {
 
 extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
     
-    
-    static func getAll() -> Self {
-        Endpoint(path: "get_all_fixtures.php")
+    static func getAllFixtures() -> Self {
+        Endpoint(path: FmfUrlPaths.getAllFixtures.rawValue, httpMethod: .GET)
     }
     
 }
@@ -79,12 +90,10 @@ extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
 
 extension Endpoint where Kind == EndpointKinds.Public, Response == [User] {
     
-    static func getUserById() -> Self {
-        Endpoint(path: FmfUrlPaths.getUserById.rawValue)
-    }
-    
-    static func getAll() -> Self {
-        Endpoint(path: FmfUrlPaths.getUserById.rawValue)
+    static func getUser(by id: String) -> Self {        
+        var endPoint = Endpoint(path: FmfUrlPaths.getUserById.rawValue, httpMethod: .POST)
+        endPoint.bodyData = ["id": id]
+        return endPoint
     }
     
 }

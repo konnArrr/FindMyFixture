@@ -10,4 +10,5 @@ import Foundation
 
 enum FmfUrlPaths: String {
     case getUserById = "getuser_byid_pdo.php"
+    case getAllFixtures = "get_all_fixtures.php"
 }
