@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-class ModelLoader{
+class ApiService{
     
-    static let shared = ModelLoader()
+    static let shared = ApiService()
     private init() {}
     
     var urlSession = URLSession.shared
@@ -33,18 +33,7 @@ class ModelLoader{
                     completion(.success(data))
             })
     }
-    
-    public func loadUser(by id: String, completion: @escaping (Result<[User], Error>) -> Void) {
-        let endPoint = Endpoint<EndpointKinds.Public, [User]>.getUser(by: id)
-        loadModel(endPoint: endPoint, completion: completion)
-    }
-    
-    public func getAllFixtures(completion: @escaping (Result<[Fixture], Error>) -> Void) {
-        loadModel(endPoint: Endpoint<EndpointKinds.Public, [Fixture]>.getAllFixtures(), completion: completion)
-    }
-    
-    
-    
+      
     
 }
 

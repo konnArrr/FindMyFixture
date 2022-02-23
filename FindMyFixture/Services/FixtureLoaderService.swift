@@ -9,9 +9,6 @@ import Foundation
 import SwiftUI
 import Combine
 
-enum HTTPError: LocalizedError {
-    case statusCode
-}
 
 
 
@@ -29,8 +26,11 @@ class FixtureLoader {
         let request = URLRequest(url:url)
         self.cancellable = URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { output in
-                guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
-                    throw HTTPError.statusCode
+                guard let response = output.response as? HTTPURLResponse else {
+                    throw FmfLoadError.dataLoadError
+                }
+                guard response.statusCode == 200 else {
+                    throw FmfLoadError.statusCode(response.statusCode)
                 }
                 return output.data
             }

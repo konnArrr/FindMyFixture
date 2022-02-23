@@ -79,24 +79,7 @@ extension Endpoint {
     
 }
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
-    
-    static func getAllFixtures() -> Self {
-        Endpoint(path: FmfUrlPaths.getAllFixtures.rawValue, httpMethod: .GET)
-    }
-    
-}
 
-
-extension Endpoint where Kind == EndpointKinds.Public, Response == [User] {
-    
-    static func getUser(by id: String) -> Self {        
-        var endPoint = Endpoint(path: FmfUrlPaths.getUserById.rawValue, httpMethod: .POST)
-        endPoint.bodyData = ["id": id]
-        return endPoint
-    }
-    
-}
 
 
 

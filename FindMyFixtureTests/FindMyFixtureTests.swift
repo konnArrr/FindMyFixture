@@ -46,12 +46,6 @@ class FindMyFixtureTests: XCTestCase {
         XCTAssertEqual(request?.url?.absoluteString , URL.default.absoluteString + "path")
     }
     
-    
-    func testUserUrl() {
-        let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, httpMethod: .POST)
-        XCTAssertEqual(endPoint.url.absoluteString, URL.default.absoluteString + FmfUrlPaths.getUserById.rawValue)
-    }
-    
     func testEndPointUrlWithQueries() {
         let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, queryItems: [URLQueryItem(name: "id", value: "1")], httpMethod: .GET)
         let request = endPoint.makeRequest()
@@ -63,8 +57,7 @@ class FindMyFixtureTests: XCTestCase {
         
     }
     
-    
-    func testUserEndPointCorrectHttpRequest() {
+    func testEndPointCorrectHttpRequest() {
         let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, queryItems: [URLQueryItem(name: "id", value: "1")], httpMethod: .POST)
         let request = endPoint.makeRequest(with: [RequestDataKeys.httpMethod : HttpMethod.POST])
         
@@ -78,33 +71,29 @@ class FindMyFixtureTests: XCTestCase {
         )
     }
     
-    func testLoadUser() {
-//        let expectation = self.expectation(description: "Await Publisher")
-//        var user: User?
-//        
-//        let cancable = URLSession.shared.publisher(endpoint: .getUserById(id: "1"), using: [RequestDataKeys.httpMethod: HttpMethod.POST, RequestDataKeys.body: ["id" : "1"]])
-//            .sink(receiveCompletion: { (completion) in
-//                switch completion {
-//                case .failure(let error):
-//                    fatalError(error.localizedDescription)
-//                case .finished:
-//                    break
-//                }
-//                expectation.fulfill()
-//            }, receiveValue: { (newUser) in
-//                user = newUser.first
-//            })
-//        
-//        waitForExpectations(timeout: 10)
-//        XCTAssertNotNil(user)
-//        cancable.cancel()
+    
+    func testUserUrl() {
+        let endPoint = Endpoint<EndpointKinds.Public, [User]>.getUser(by: "1")
+        XCTAssertEqual(endPoint.url.absoluteString, URL.default.absoluteString + FmfUrlPaths.getUserById.rawValue)
     }
     
-    func testUserModelLoader() {
+
+    func testUserEndPointCorrectHttpRequest() {
+        let endPoint = Endpoint<EndpointKinds.Public, [User]>.getUser(by: "1")
+    
+        XCTAssertEqual(
+            endPoint.httpMethod,
+            HttpMethod.POST
+        )
+    }
+    
+    
+    
+    func testModelLoader() {
         let expectation = self.expectation(description: "await api answer")
         var testUser: User?
         
-        ModelLoader.shared.loadModel(endPoint: Endpoint<EndpointKinds.Public, [User]>.getUser(by: "1")) { result in
+        ApiService.shared.loadModel(endPoint: Endpoint<EndpointKinds.Public, [User]>.getUser(by: "1")) { result in
             switch result {
             case .success(let user):
                 testUser = user.first
@@ -120,11 +109,11 @@ class FindMyFixtureTests: XCTestCase {
     }
     
     
-    func testUserNoIdLoader() {
+    func testUserLoader() {
         let expectation = self.expectation(description: "await api answer")
         var testUser: User?
         
-        ModelLoader.shared.loadUser(by: "1") { result in
+        ApiService.shared.loadUser(by: "1") { result in
             switch result {
             case .success(let user):
                 testUser = user.first
@@ -132,18 +121,40 @@ class FindMyFixtureTests: XCTestCase {
                 print("error: \(error)")
             }
             expectation.fulfill()
-        }
-        
+        }        
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssertNotNil(testUser)
         XCTAssertEqual(testUser, Mock.User.validUser)
     }
+    
+    func testUserLoaderWithWrongId() {
+        let expectation = self.expectation(description: "await api answer")
+        var statusCodeLocal: Int = 0
+        ApiService.shared.loadUser(by: "200") { result in
+            switch result {
+            case .success(let user):
+                print(user)
+            case .failure(let error):
+                if case FmfLoadError.statusCode(let statusCode) = error {
+                    print("error: \(error)")
+                    statusCodeLocal = statusCode
+                } else {
+                    print("error: \(error)")
+                }
+            }
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertNotNil(statusCodeLocal)
+        XCTAssertEqual(statusCodeLocal, Mock.StatusCodes.code404)
+    }
+    
     
     func testFixtureModelLoader() {
         let expectation = self.expectation(description: "await api answer")
         var testFixture: Fixture?
         
-        ModelLoader.shared.getAllFixtures() { result in
+        ApiService.shared.getAllFixtures() { result in
             switch result {
             case .success(let user):
                 testFixture = user.first
@@ -156,6 +167,20 @@ class FindMyFixtureTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssertNotNil(testFixture)
         XCTAssertEqual(testFixture, Mock.Fixture.validFixture)
+    }
+    
+    
+    func testLoginService() {
+        let expectation = self.expectation(description: "await api answer")
+        let service = LoginService()
+        var loginState: Bool = false
+        service.userLogin(username: "admin", password: "admin") { loginSucces, message, userId in
+            loginState = loginSucces
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertTrue(loginState)
     }
     
     

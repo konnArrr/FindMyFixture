@@ -8,6 +8,7 @@
 import Foundation
 
 protocol RepositoryProtocol {
+    
     associatedtype Model: Identifiable, Decodable
     
     func addModel(model: Model.ID, completion: @escaping (Result<Model, Error>) -> Void)
@@ -17,4 +18,5 @@ protocol RepositoryProtocol {
     func updateModel(with model: Model, completion: @escaping (Result<Model, Error>) -> Void)
     
     func getAll(completion: @escaping (Result<[Model], Error>) -> Void)
+    
 }

@@ -11,19 +11,7 @@ import Combine
 
 extension URLSession {
     
-    func publisher<T: Decodable>(
-        url: URL,
-        responseType: T.Type = T.self,
-        decoder: JSONDecoder = .init()
-    ) -> AnyPublisher<T, Error> {
-        dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: NetworkResponse<T>.self, decoder: decoder)
-            .map(\.result)
-            .eraseToAnyPublisher()
-    }
-    
-    
+ 
     func publisher<K, R>(endpoint: Endpoint<K, R>,decoder: JSONDecoder = .init()) -> AnyPublisher<R, Error>    {
         guard let request = endpoint.makeRequest(with: endpoint.requestData) else {
             return Fail(
@@ -32,8 +20,11 @@ extension URLSession {
         }        
         return dataTaskPublisher(for: request)
                 .tryMap { output in
-                    guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
-                        throw HTTPError.statusCode
+                    guard let response = output.response as? HTTPURLResponse else {
+                        throw FmfLoadError.dataLoadError
+                    }
+                    guard response.statusCode == 200 else {
+                        throw FmfLoadError.statusCode(response.statusCode)
                     }
                     return output.data
                 }

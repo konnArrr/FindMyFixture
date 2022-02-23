@@ -14,6 +14,7 @@ public enum FmfLoadError: Error {
     case imageLoadError
     case jsonCategoryLoadError
     case invalidEndpointError
+    case statusCode(Int)
 }
 
 extension FmfLoadError : LocalizedError {
