@@ -42,7 +42,7 @@
 		3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE1DAC267155D8003AF4D3 /* LoginService.swift */; };
 		9E78D1D427B286020077AB05 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1D327B286020077AB05 /* RepositoryProtocol.swift */; };
 		9E78D1E727B2A8A10077AB05 /* URLHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1E627B2A8A10077AB05 /* URLHost.swift */; };
-		9E78D1E927B2A8BD0077AB05 /* NetWorkConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1E827B2A8BD0077AB05 /* NetWorkConstans.swift */; };
+		9E78D1E927B2A8BD0077AB05 /* NetWorkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1E827B2A8BD0077AB05 /* NetWorkConstants.swift */; };
 		9EA41C2B27B3E42A0063A831 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA41C2427B3DF8E0063A831 /* Mock.swift */; };
 		9EA41C2C27B3E4380063A831 /* FindMyFixtureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E78D1DD27B29B450077AB05 /* FindMyFixtureTests.swift */; };
 		9ED5730027B158D80038F7C3 /* FmfError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED572FF27B158D80038F7C3 /* FmfError.swift */; };
@@ -51,6 +51,11 @@
 		9ED5730727B166D80038F7C3 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5730627B166D80038F7C3 /* URLSession+Extensions.swift */; };
 		9EDE975F27C6956800C31820 /* ApiServiceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE975E27C6956800C31820 /* ApiServiceExtension.swift */; };
 		9EDE976227C6969B00C31820 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDE976127C6969B00C31820 /* EndPoints.swift */; };
+		9EEB4CDB27CFAD0A0011511B /* NetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CDA27CFAD0A0011511B /* NetworkResponseModel.swift */; };
+		9EEB4CDD27CFC75F0011511B /* RequestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CDC27CFC75F0011511B /* RequestDataModel.swift */; };
+		9EEB4CE127CFC9870011511B /* BodyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE027CFC9870011511B /* BodyDataModel.swift */; };
+		9EEB4CE327CFCCEA0011511B /* LoginBodyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE227CFCCEA0011511B /* LoginBodyDataModel.swift */; };
+		9EEB4CE527CFD4ED0011511B /* GetUserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE427CFD4ED0011511B /* GetUserDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +108,7 @@
 		9E78D1DB27B29B450077AB05 /* FindMyFixtureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindMyFixtureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E78D1DD27B29B450077AB05 /* FindMyFixtureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyFixtureTests.swift; sourceTree = "<group>"; };
 		9E78D1E627B2A8A10077AB05 /* URLHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHost.swift; sourceTree = "<group>"; };
-		9E78D1E827B2A8BD0077AB05 /* NetWorkConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkConstans.swift; sourceTree = "<group>"; };
+		9E78D1E827B2A8BD0077AB05 /* NetWorkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkConstants.swift; sourceTree = "<group>"; };
 		9EA41C2427B3DF8E0063A831 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		9ED572FF27B158D80038F7C3 /* FmfError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmfError.swift; sourceTree = "<group>"; };
 		9ED5730127B1603D0038F7C3 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -111,6 +116,11 @@
 		9ED5730627B166D80038F7C3 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		9EDE975E27C6956800C31820 /* ApiServiceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceExtension.swift; sourceTree = "<group>"; };
 		9EDE976127C6969B00C31820 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		9EEB4CDA27CFAD0A0011511B /* NetworkResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseModel.swift; sourceTree = "<group>"; };
+		9EEB4CDC27CFC75F0011511B /* RequestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDataModel.swift; sourceTree = "<group>"; };
+		9EEB4CE027CFC9870011511B /* BodyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyDataModel.swift; sourceTree = "<group>"; };
+		9EEB4CE227CFCCEA0011511B /* LoginBodyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBodyDataModel.swift; sourceTree = "<group>"; };
+		9EEB4CE427CFD4ED0011511B /* GetUserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +149,8 @@
 				3F70352B2671FDD30004DEF5 /* LoginResponseModel.swift */,
 				3F703535267223CA0004DEF5 /* PhpResponseModel.swift */,
 				3F703538267244B90004DEF5 /* FixtureModel.swift */,
+				9EEB4CE227CFCCEA0011511B /* LoginBodyDataModel.swift */,
+				9EEB4CE427CFD4ED0011511B /* GetUserDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,7 +270,10 @@
 				9ED5730327B166160038F7C3 /* EndPoint.swift */,
 				9E78D1D327B286020077AB05 /* RepositoryProtocol.swift */,
 				9E78D1E627B2A8A10077AB05 /* URLHost.swift */,
-				9E78D1E827B2A8BD0077AB05 /* NetWorkConstans.swift */,
+				9E78D1E827B2A8BD0077AB05 /* NetWorkConstants.swift */,
+				9EEB4CDA27CFAD0A0011511B /* NetworkResponseModel.swift */,
+				9EEB4CDC27CFC75F0011511B /* RequestDataModel.swift */,
+				9EEB4CE027CFC9870011511B /* BodyDataModel.swift */,
 			);
 			path = ApiServiceBase;
 			sourceTree = "<group>";
@@ -385,6 +400,7 @@
 				9ED5730227B1603D0038F7C3 /* ApiService.swift in Sources */,
 				3F703539267244B90004DEF5 /* FixtureModel.swift in Sources */,
 				9ED5730727B166D80038F7C3 /* URLSession+Extensions.swift in Sources */,
+				9EEB4CE127CFC9870011511B /* BodyDataModel.swift in Sources */,
 				3FBE1D9E2671492B003AF4D3 /* ContentView.swift in Sources */,
 				3FAF781C26738AA100666059 /* DetailViewModel.swift in Sources */,
 				3F703532267221F10004DEF5 /* UserRegisterService.swift in Sources */,
@@ -396,6 +412,7 @@
 				3FAF78152673603200666059 /* DetailView.swift in Sources */,
 				3F70356A267298A60004DEF5 /* TabViewModel.swift in Sources */,
 				9ED5730027B158D80038F7C3 /* FmfError.swift in Sources */,
+				9EEB4CDB27CFAD0A0011511B /* NetworkResponseModel.swift in Sources */,
 				3F70352F26721B760004DEF5 /* UserLoaderService.swift in Sources */,
 				3FA9B44226735056000A3233 /* ListSearchViewModel.swift in Sources */,
 				9E78D1D427B286020077AB05 /* RepositoryProtocol.swift in Sources */,
@@ -408,16 +425,19 @@
 				9ED5730427B166160038F7C3 /* EndPoint.swift in Sources */,
 				3F703561267297090004DEF5 /* ListSearchView.swift in Sources */,
 				3FAF78252673C2AE00666059 /* FavouritesViewModel.swift in Sources */,
+				9EEB4CDD27CFC75F0011511B /* RequestDataModel.swift in Sources */,
 				9EA41C2B27B3E42A0063A831 /* Mock.swift in Sources */,
+				9EEB4CE527CFD4ED0011511B /* GetUserDataModel.swift in Sources */,
 				3FBE1DAD267155D8003AF4D3 /* LoginService.swift in Sources */,
 				3F7035292671FD9C0004DEF5 /* UserModel.swift in Sources */,
-				9E78D1E927B2A8BD0077AB05 /* NetWorkConstans.swift in Sources */,
+				9E78D1E927B2A8BD0077AB05 /* NetWorkConstants.swift in Sources */,
 				3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */,
 				3FAF78222673C11400666059 /* StorageLoader.swift in Sources */,
 				3F70353C267245DB0004DEF5 /* FixtureLoaderService.swift in Sources */,
 				3F70355526726F610004DEF5 /* LoginView.swift in Sources */,
 				9EDE975F27C6956800C31820 /* ApiServiceExtension.swift in Sources */,
 				3F70355B267270730004DEF5 /* MainTabView.swift in Sources */,
+				9EEB4CE327CFCCEA0011511B /* LoginBodyDataModel.swift in Sources */,
 				3F703564267297180004DEF5 /* FavouritesView.swift in Sources */,
 				3F70352C2671FDD30004DEF5 /* LoginResponseModel.swift in Sources */,
 			);

@@ -13,11 +13,10 @@ class LoginService {
     
     private var loginSucces: Bool = false
     
-    public func userLogin(username: String, password: String, completion: @escaping (_ loginSucces: Bool, _ message: String, _ userId: Int) -> Void) {
-        ApiService.shared.getLoginResponse(username: username, password: password) { result in
+    public func userLogin(data: LoginBodyDataModel, completion: @escaping (_ loginSucces: Bool, _ message: String, _ userId: Int) -> Void) {
+        ApiService.shared.getLoginResponse(by: data) { result in
             switch result {
-            case .success(let response):
-                guard let loginData = response.first else { return }
+            case .success(let loginData):
                 if loginData.state == "3" {
                     self.loginSucces = true
                 } else {

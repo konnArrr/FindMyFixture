@@ -9,21 +9,25 @@ import Foundation
 import Combine
 
 protocol EndpointKind {
-   static func prepare(_ request: inout URLRequest, with data: [RequestDataKeys:Any])
+   static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel)
 }
 
 enum EndpointKinds {
     enum Public: EndpointKind {
-        static func prepare(_ request: inout URLRequest, with data: [RequestDataKeys:Any]) {            
-           
+        static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel) {
             // add specific requestData to request
-            if let bodyDic = data[.body] as? [AnyHashable : Any] {
-                let jsonData = try? JSONSerialization.data(withJSONObject: bodyDic, options: .prettyPrinted)
+            if let bodydata = requestData.bodyData {
+                let encoder = JSONEncoder()
+                let jsonData = try? encoder.encode(bodydata)
+                if let jsonData = jsonData {
+                    let jsonString = String(data: jsonData, encoding: .utf8)!
+                    print("jsonString: \(jsonString)")
+                }
+                
                 request.httpBody = jsonData
-            }            
-            if let httpMethod = data[RequestDataKeys.httpMethod] as? HttpMethod {
-                request.httpMethod = httpMethod.rawValue
             }
+            request.httpMethod = requestData.httpMethod.rawValue
+            
             request.cachePolicy = .reloadIgnoringLocalCacheData
         }
     }
@@ -35,19 +39,17 @@ enum EndpointKinds {
 
 struct Endpoint<Kind: EndpointKind, Response: Decodable> {
     var path: String
-    var queryItems = [URLQueryItem]()
-    var httpMethod: HttpMethod
-    var bodyData: [AnyHashable : Any]?
+    var requestData: RequestDataModel
     
     
-    var requestData: [RequestDataKeys:Any] {
-        var requestData: [RequestDataKeys:Any] = [:]
-        requestData[RequestDataKeys.httpMethod] = httpMethod
-        if let bodyData = bodyData {
-            requestData[RequestDataKeys.body] = bodyData
-        }
-        return requestData
-    }
+//    var requestData: [RequestDataKeys:Any] {
+//        var requestData: [RequestDataKeys:Any] = [:]
+//        requestData[RequestDataKeys.httpMethod] = httpMethod
+//        if let bodyData = bodyData {
+//            requestData[RequestDataKeys.body] = bodyData
+//        }
+//        return requestData
+//    }
 }
 
 extension Endpoint {
@@ -57,8 +59,8 @@ extension Endpoint {
         components.scheme = URLConstants.baseHttpScheme.rawValue
         components.host = URLConstants.baseHost.rawValue
         components.path = URLConstants.basePath.rawValue + path
-        if !queryItems.isEmpty {
-            components.queryItems = queryItems
+        if let queryItems = requestData.queryItems {
+            components.setQueryItems(with: queryItems)
         }
         guard let url = components.url else {
             preconditionFailure(
@@ -71,15 +73,21 @@ extension Endpoint {
 
 extension Endpoint {
     
-    func makeRequest(with data: [RequestDataKeys:Any] = [:]) -> URLRequest? {
+    func makeRequest() -> URLRequest? {
         var request = URLRequest(url: url)
-        Kind.prepare(&request, with: data)
+        Kind.prepare(&request, with: self.requestData)
         return request
     }
     
 }
 
 
+extension URLComponents {
+    
+    mutating func setQueryItems(with parameters: [String: String]) {
+        self.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+    }
+}
 
 
 

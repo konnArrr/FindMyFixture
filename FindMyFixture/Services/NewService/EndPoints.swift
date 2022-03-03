@@ -11,28 +11,27 @@ import Foundation
 extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
     
     static func getAllFixtures() -> Self {
-        Endpoint(path: FmfUrlPaths.getAllFixtures.rawValue, httpMethod: .GET)
+        let requestData = RequestDataModel(httpMethod: .GET)
+        return Endpoint(path: FmfUrlPaths.getAllFixtures.rawValue, requestData: requestData)
     }
     
 }
 
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == [User] {
+extension Endpoint where Kind == EndpointKinds.Public, Response == User {
     
-    static func getUser(by id: String) -> Self {
-        var endPoint = Endpoint(path: FmfUrlPaths.getUserById.rawValue, httpMethod: .POST)
-        endPoint.bodyData = ["id": id]
-        return endPoint
+    static func getUser(by bodyData: UserBodyDataModel) -> Self {
+        let requestData = RequestDataModel(httpMethod: .POST, bodyData: bodyData)
+        return Endpoint(path: FmfUrlPaths.getUserById.rawValue, requestData: requestData)
     }
     
 }
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == [LoginResponse] {
+extension Endpoint where Kind == EndpointKinds.Public, Response == LoginResponse {
     
-    static func getLoginEndpoint(username: String, password: String) -> Self {
-        var endPoint = Endpoint(path: FmfUrlPaths.loginPath.rawValue, httpMethod: .POST)
-        endPoint.bodyData = ["username": username, "password": password]
-        return endPoint
+    static func getLoginEndpoint(bodyData: LoginBodyDataModel) -> Self {
+        let requestData = RequestDataModel(httpMethod: .POST, bodyData: bodyData)
+        return Endpoint(path: FmfUrlPaths.loginPath.rawValue, requestData: requestData)
     }
     
 }

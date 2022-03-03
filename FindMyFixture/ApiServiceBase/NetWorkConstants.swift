@@ -20,15 +20,5 @@ enum FmfUrlPaths: String {
 }
 
 
-enum RequestDataKeys: String {
-    case httpMethod
-    case body
-}
 
 
-enum HttpMethod : String {
-   case  GET
-   case  POST
-   case  DELETE
-   case  PUT
-}

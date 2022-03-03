@@ -41,13 +41,13 @@ class FindMyFixtureTests: XCTestCase {
     }
     
     func testBasicRequestGeneration() {
-        let endpoint = PublicEndpoint(path: "path", httpMethod: .GET)
+        let endpoint = PublicEndpoint(path: "path", requestData: RequestDataModel(httpMethod: .GET))
         let request = endpoint.makeRequest()
         XCTAssertEqual(request?.url?.absoluteString , URL.default.absoluteString + "path")
     }
     
     func testEndPointUrlWithQueries() {
-        let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, queryItems: [URLQueryItem(name: "id", value: "1")], httpMethod: .GET)
+        let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, requestData:  RequestDataModel(httpMethod: .GET, queryItems: ["id": "1"]))
         let request = endPoint.makeRequest()
         let testUrl = URL(string: "http://hasashi.bplaced.net/findmyfixture/php/getuser_byid_pdo.php?id=1")
         XCTAssertEqual(
@@ -58,12 +58,12 @@ class FindMyFixtureTests: XCTestCase {
     }
     
     func testEndPointCorrectHttpRequest() {
-        let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, queryItems: [URLQueryItem(name: "id", value: "1")], httpMethod: .POST)
-        let request = endPoint.makeRequest(with: [RequestDataKeys.httpMethod : HttpMethod.POST])
+        let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, requestData:  RequestDataModel(httpMethod: .POST, queryItems: ["id": "1"]))
+        let request = endPoint.makeRequest()
         
         var testRequest = URLRequest(url: URL.default)
         
-        testRequest.httpMethod = HttpMethod.POST.rawValue
+        testRequest.httpMethod = RequestDataModel.HttpMethod.POST.rawValue
         
         XCTAssertEqual(
             request?.httpMethod,
@@ -73,17 +73,17 @@ class FindMyFixtureTests: XCTestCase {
     
     
     func testUserUrl() {
-        let endPoint = Endpoint<EndpointKinds.Public, [User]>.getUser(by: "1")
+        let endPoint = Endpoint<EndpointKinds.Public, User>.getUser(by: UserBodyDataModel(id: "1"))
         XCTAssertEqual(endPoint.url.absoluteString, URL.default.absoluteString + FmfUrlPaths.getUserById.rawValue)
     }
     
 
     func testUserEndPointCorrectHttpRequest() {
-        let endPoint = Endpoint<EndpointKinds.Public, [User]>.getUser(by: "1")
+        let endPoint = Endpoint<EndpointKinds.Public, User>.getUser(by: UserBodyDataModel(id: "1"))
     
         XCTAssertEqual(
-            endPoint.httpMethod,
-            HttpMethod.POST
+            endPoint.requestData.httpMethod,
+            RequestDataModel.HttpMethod.POST
         )
     }
     
@@ -93,10 +93,10 @@ class FindMyFixtureTests: XCTestCase {
         let expectation = self.expectation(description: "await api answer")
         var testUser: User?
         
-        ApiService.shared.loadModel(endPoint: Endpoint<EndpointKinds.Public, [User]>.getUser(by: "1")) { result in
+        ApiService.shared.loadModel(endPoint: Endpoint<EndpointKinds.Public, User>.getUser(by: UserBodyDataModel(id: "1"))) { result in
             switch result {
             case .success(let user):
-                testUser = user.first
+                testUser = user
             case .failure(let error):
                 print("error: \(error)")
             }
@@ -113,10 +113,10 @@ class FindMyFixtureTests: XCTestCase {
         let expectation = self.expectation(description: "await api answer")
         var testUser: User?
         
-        ApiService.shared.loadUser(by: "1") { result in
+        ApiService.shared.loadUser(by: UserBodyDataModel(id: "1")) { result in
             switch result {
             case .success(let user):
-                testUser = user.first
+                testUser = user
             case .failure(let error):
                 print("error: \(error)")
             }
@@ -130,7 +130,7 @@ class FindMyFixtureTests: XCTestCase {
     func testUserLoaderWithWrongId() {
         let expectation = self.expectation(description: "await api answer")
         var statusCodeLocal: Int = 0
-        ApiService.shared.loadUser(by: "200") { result in
+        ApiService.shared.loadUser(by: UserBodyDataModel(id: "200")) { result in
             switch result {
             case .success(let user):
                 print(user)
@@ -174,7 +174,7 @@ class FindMyFixtureTests: XCTestCase {
         let expectation = self.expectation(description: "await api answer")
         let service = LoginService()
         var loginState: Bool = false
-        service.userLogin(username: "admin", password: "admin") { loginSucces, message, userId in
+        service.userLogin(data: LoginBodyDataModel(username: "admin", password: "admin")) { loginSucces, message, userId in
             loginState = loginSucces
             expectation.fulfill()
         }

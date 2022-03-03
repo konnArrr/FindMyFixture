@@ -18,7 +18,8 @@ class LoginViewModel: ObservableObject {
     
     
     public func login(username: String, password: String) {
-        loginService.userLogin(username: username, password: password) { (loginState, msg, uId) in
+        let loginData = LoginBodyDataModel(username: username, password: password)
+        loginService.userLogin(data: loginData) { (loginState, msg, uId) in
             self.loginSuccess = loginState
             print("\(self.loginSuccess)")
             self.message = msg

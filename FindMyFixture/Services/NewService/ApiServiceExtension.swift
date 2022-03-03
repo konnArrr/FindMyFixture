@@ -11,8 +11,8 @@ extension ApiService {
     
 
     
-    public func loadUser(by id: String, completion: @escaping (Result<[User], Error>) -> Void) {
-        let endPoint = Endpoint<EndpointKinds.Public, [User]>.getUser(by: id)
+    public func loadUser(by data: UserBodyDataModel, completion: @escaping (Result<User, Error>) -> Void) {
+        let endPoint = Endpoint<EndpointKinds.Public, User>.getUser(by: data)
         loadModel(endPoint: endPoint, completion: completion)
     }
     
@@ -20,8 +20,8 @@ extension ApiService {
         loadModel(endPoint: Endpoint<EndpointKinds.Public, [Fixture]>.getAllFixtures(), completion: completion)
     }
     
-    public func getLoginResponse(username: String, password: String, completion:  @escaping (Result<[LoginResponse], Error>) -> Void) {
-        loadModel(endPoint: Endpoint<EndpointKinds.Public, [LoginResponse]>.getLoginEndpoint(username: username, password: password), completion: completion)
+    public func getLoginResponse(by data: LoginBodyDataModel, completion:  @escaping (Result<LoginResponse, Error>) -> Void) {
+        loadModel(endPoint: Endpoint<EndpointKinds.Public, LoginResponse>.getLoginEndpoint(bodyData: data), completion: completion)
     }
     
     
