@@ -8,27 +8,27 @@
 import Foundation
 
 
-class Fixture: BodyDataModel, Equatable{
+class Fixture: BodyDataModel, Equatable, ObservableObject{
     
     
     
     var id: Int
-    var name: String
-    var producer: String
-    var power: Int
-    var powerLight: Int
-    var headMover: Int
-    var goboWheels: Int
-    var prisms: Int
-    var minZoom: Double
-    var maxZoom: Double
-    var colorSystem: Int
-    var dmxModes: Int
-    var minDmx: Int
-    var maxDmx: Int
-    var weight: Int
-    var comment: String
-    var imageURL: String
+    @Published var name: String
+    @Published var producer: String
+    @Published var power: Int
+    @Published var powerLight: Int
+    @Published var headMover: Int
+    @Published var goboWheels: Int
+    @Published var prisms: Int
+    @Published var minZoom: Double
+    @Published var maxZoom: Double
+    @Published var colorSystem: Int
+    @Published var dmxModes: Int
+    @Published var minDmx: Int
+    @Published var maxDmx: Int
+    @Published var weight: Int
+    @Published var comment: String
+    @Published var imageURL: String
     
     
     var colorSysEnum: ColorSystem {

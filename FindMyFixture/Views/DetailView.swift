@@ -94,7 +94,7 @@ struct DetailView: View {
                     Spacer()
                     Divider()
                     Spacer()
-                    Text("\(fixture.minDmx)")
+                    Text("\(fixture.maxDmx)")
                 }
             }
             Section(header: Text("Weight")) {
