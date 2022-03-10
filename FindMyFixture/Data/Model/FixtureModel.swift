@@ -8,23 +8,24 @@
 import Foundation
 
 
-struct Fixture: Codable, Equatable{
-//    let id: Int
-//    let name, producer: String
-//    let power, powerLight, headMover, goboWheels: Int
-//    let prisms: Int
-//    let minZoom, maxZoom: Double
-//    let colorSystem, dmxModes, minDmx, maxDmx: Int
-//    let weight: Int
-//    let comment: String
-//    let imageURL: String
+class Fixture: BodyDataModel, Equatable{
+    
+    
     
     var id: Int
-    var name, producer: String
-    var power, powerLight, headMover, goboWheels: Int
+    var name: String
+    var producer: String
+    var power: Int
+    var powerLight: Int
+    var headMover: Int
+    var goboWheels: Int
     var prisms: Int
-    var minZoom, maxZoom: Double
-    var colorSystem, dmxModes, minDmx, maxDmx: Int
+    var minZoom: Double
+    var maxZoom: Double
+    var colorSystem: Int
+    var dmxModes: Int
+    var minDmx: Int
+    var maxDmx: Int
     var weight: Int
     var comment: String
     var imageURL: String
@@ -38,6 +39,98 @@ struct Fixture: Codable, Equatable{
         return LampType(rawValue: headMover) ?? .nonHeadMover
     }
     
+    
+    internal init(id: Int, name: String, producer: String, power: Int, powerLight: Int, headMover: Int, goboWheels: Int, prisms: Int, minZoom: Double, maxZoom: Double, colorSystem: Int, dmxModes: Int, minDmx: Int, maxDmx: Int, weight: Int, comment: String, imageURL: String) {
+        self.id = id
+        self.name = name
+        self.producer = producer
+        self.power = power
+        self.powerLight = powerLight
+        self.headMover = headMover
+        self.goboWheels = goboWheels
+        self.prisms = prisms
+        self.minZoom = minZoom
+        self.maxZoom = maxZoom
+        self.colorSystem = colorSystem
+        self.dmxModes = dmxModes
+        self.minDmx = minDmx
+        self.maxDmx = maxDmx
+        self.weight = weight
+        self.comment = comment
+        self.imageURL = imageURL
+        super.init()
+    }
+    
+    enum CodeKeys: CodingKey {
+        case id
+        case name
+        case producer
+        case power
+        case powerLight
+        case headMover
+        case goboWheels
+        case prisms
+        case minZoom
+        case maxZoom
+        case colorSystem
+        case dmxModes
+        case minDmx
+        case maxDmx
+        case weight
+        case comment
+        case imageURL
+    }
+    
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodeKeys.self)
+        id = try container.decode(Int.self, forKey:.id)
+        name = try container.decode(String.self, forKey:.name)
+        producer = try container.decode(String.self, forKey:.producer)
+        power = try container.decode(Int.self, forKey:.power)
+        powerLight = try container.decode(Int.self, forKey:.powerLight)
+        headMover = try container.decode(Int.self, forKey:.headMover)
+        goboWheels = try container.decode(Int.self, forKey:.goboWheels)
+        prisms = try container.decode(Int.self, forKey:.prisms)
+        minZoom = try container.decode(Double.self, forKey:.minZoom)
+        maxZoom = try container.decode(Double.self, forKey:.maxZoom)
+        colorSystem = try container.decode(Int.self, forKey:.colorSystem)
+        dmxModes = try container.decode(Int.self, forKey:.dmxModes)
+        minDmx = try container.decode(Int.self, forKey:.minDmx)
+        maxDmx = try container.decode(Int.self, forKey:.maxDmx)
+        weight = try container.decode(Int.self, forKey:.weight)
+        comment = try container.decode(String.self, forKey:.comment)
+        imageURL = try container.decode(String.self, forKey:.imageURL)
+        super.init()
+    }
+    
+    override func encode(to encoder: Encoder) throws
+    {
+        var container = encoder.container(keyedBy: CodeKeys.self)
+        try container.encode (id, forKey: .id)
+        try container.encode (name, forKey: .name)
+        try container.encode (producer, forKey: .producer)
+        try container.encode (power, forKey: .power)
+        try container.encode (powerLight, forKey: .powerLight)
+        try container.encode (headMover, forKey: .headMover)
+        try container.encode (goboWheels, forKey: .goboWheels)
+        try container.encode (prisms, forKey: .prisms)
+        try container.encode (minZoom, forKey: .minZoom)
+        try container.encode (maxZoom, forKey: .maxZoom)
+        try container.encode (colorSystem, forKey: .colorSystem)
+        try container.encode (dmxModes, forKey: .dmxModes)
+        try container.encode (minDmx, forKey: .minDmx)
+        try container.encode (maxDmx, forKey: .maxDmx)
+        try container.encode (weight, forKey: .weight)
+        try container.encode (comment, forKey: .comment)
+        try container.encode (imageURL, forKey: .imageURL)
+    }
+    
+    static func == (lhs: Fixture, rhs: Fixture) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+
 }
 
 

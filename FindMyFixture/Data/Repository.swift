@@ -8,36 +8,55 @@
 import Foundation
 import SwiftUI
 
+private let logger = Logger.getLogger(Repository.self, level: .verbose)
+
 
 class Repository {
     
     static let shared = Repository()
     private init() {}
     
-    
-    private var fixtures = [Fixture]()
-    
-    @Published var fixturesToShow = [Fixture]()
-    
-    private let fixtureLoader = FixtureLoader()
-    
-    
-    public func loadAllFixtures() {
-        fixtureLoader.loadAllFixtures { (loadedFixtures) in
-            self.fixtures = loadedFixtures
-            self.fixturesToShow = loadedFixtures
-        }
-    }
-    
-    func filterFixtureListBy(searchTerm: String) {
-        if searchTerm.isEmpty {
-            fixturesToShow = fixtures
-        } else {
-            fixturesToShow = fixtures.filter {
-                $0.name.range(of: searchTerm, options: .caseInsensitive) != nil || $0.producer.range(of: searchTerm, options: .caseInsensitive) != nil
+
+    public func loadAllFixtures(completion: @escaping (Result<[Fixture], Error>) -> Void) {
+        ApiService.shared.getAllFixtures { result in
+            switch result {
+            case .success(let fixtures):
+                logger.info("get all fixtures successful with: \(fixtures)")
+                completion(.success(fixtures))
+            case .failure(let error):
+                logger.error(error)
+                completion(.failure(error))
             }
         }
     }
+    
+    public func addFixture(with fixture: Fixture, completion: @escaping (Result<PhpResponse, Error>) -> Void) {
+        ApiService.shared.addFixture(by: fixture) { result in
+            switch result {
+            case .success(let response):
+                logger.info("fixture added with response: \(response)")
+                completion(.success(response))
+            case .failure(let error):
+                logger.error(error)
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    public func getUser(by data: UserBodyDataModel, completion: @escaping (Result<User, Error>) -> Void) {
+        ApiService.shared.loadUser(by: data) { result in
+            switch result {
+            case .success(let user):
+                logger.info("get all fixtures successful with: \(user)")
+                completion(.success(user))
+            case .failure(let error):
+                logger.error(error)
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    
     
     
     

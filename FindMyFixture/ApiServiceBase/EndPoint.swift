@@ -6,7 +6,10 @@
 //
 
 import Foundation
-import Combine
+
+
+private let logger = Logger.getLogger(ApiService.self, level: .verbose)
+
 
 protocol EndpointKind {
    static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel)
@@ -21,13 +24,11 @@ enum EndpointKinds {
                 let jsonData = try? encoder.encode(bodydata)
                 if let jsonData = jsonData {
                     let jsonString = String(data: jsonData, encoding: .utf8)!
-                    print("jsonString: \(jsonString)")
+                    logger.verbose("jsonString: \(jsonString)")
                 }
-                
                 request.httpBody = jsonData
             }
             request.httpMethod = requestData.httpMethod.rawValue
-            
             request.cachePolicy = .reloadIgnoringLocalCacheData
         }
     }
@@ -38,18 +39,10 @@ enum EndpointKinds {
 
 
 struct Endpoint<Kind: EndpointKind, Response: Decodable> {
+    
     var path: String
     var requestData: RequestDataModel
     
-    
-//    var requestData: [RequestDataKeys:Any] {
-//        var requestData: [RequestDataKeys:Any] = [:]
-//        requestData[RequestDataKeys.httpMethod] = httpMethod
-//        if let bodyData = bodyData {
-//            requestData[RequestDataKeys.body] = bodyData
-//        }
-//        return requestData
-//    }
 }
 
 extension Endpoint {

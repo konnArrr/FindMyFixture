@@ -47,7 +47,7 @@ class FindMyFixtureTests: XCTestCase {
     }
     
     func testEndPointUrlWithQueries() {
-        let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, requestData:  RequestDataModel(httpMethod: .GET, queryItems: ["id": "1"]))
+        let endPoint = PublicEndpoint(path: UrlEndPaths.getUserById.rawValue, requestData:  RequestDataModel(httpMethod: .GET, queryItems: ["id": "1"]))
         let request = endPoint.makeRequest()
         let testUrl = URL(string: "http://hasashi.bplaced.net/findmyfixture/php/getuser_byid_pdo.php?id=1")
         XCTAssertEqual(
@@ -58,7 +58,7 @@ class FindMyFixtureTests: XCTestCase {
     }
     
     func testEndPointCorrectHttpRequest() {
-        let endPoint = PublicEndpoint(path: FmfUrlPaths.getUserById.rawValue, requestData:  RequestDataModel(httpMethod: .POST, queryItems: ["id": "1"]))
+        let endPoint = PublicEndpoint(path: UrlEndPaths.getUserById.rawValue, requestData:  RequestDataModel(httpMethod: .POST, queryItems: ["id": "1"]))
         let request = endPoint.makeRequest()
         
         var testRequest = URLRequest(url: URL.default)
@@ -74,7 +74,7 @@ class FindMyFixtureTests: XCTestCase {
     
     func testUserUrl() {
         let endPoint = Endpoint<EndpointKinds.Public, User>.getUser(by: UserBodyDataModel(id: "1"))
-        XCTAssertEqual(endPoint.url.absoluteString, URL.default.absoluteString + FmfUrlPaths.getUserById.rawValue)
+        XCTAssertEqual(endPoint.url.absoluteString, URL.default.absoluteString + UrlEndPaths.getUserById.rawValue)
     }
     
 
@@ -172,18 +172,51 @@ class FindMyFixtureTests: XCTestCase {
     
     func testLoginService() {
         let expectation = self.expectation(description: "await api answer")
-        let service = LoginService()
         var loginState: Bool = false
-        service.userLogin(data: LoginBodyDataModel(username: "admin", password: "admin")) { loginSucces, message, userId in
-            loginState = loginSucces
+        ApiService.shared.getLoginResponse(by: LoginBodyDataModel(username: "admin", password: "admin")) { result in
+            switch result {
+            case .success(let response):                
+                loginState = response.state == "3"
+            case .failure(let error):
+                print("login error . \(error)")
+            }
             expectation.fulfill()
         }
-        
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssertTrue(loginState)
     }
     
+    func testRegisterService() {
+        let expectation = self.expectation(description: "await api answer")
+        var registerState: Bool = false
+        ApiService.shared.registerUser(by: LoginBodyDataModel(username: "testing", password: "testing")) { result in
+            switch result {
+            case .success(let response):
+                registerState = response.state == "3"
+            case .failure(let error):
+                print("register error . \(error)")
+            }
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertTrue(registerState)
+    }
     
+    func testAddFixture() {
+        let expectation = self.expectation(description: "await api answer")
+        var registerState: Bool = false
+        ApiService.shared.addFixture(by: Mock.Fixture.addingFixture) { result in
+            switch result {
+            case .success(let response):
+                registerState = response.state == "1"
+            case .failure(let error):
+                print("register error . \(error)")
+            }
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertTrue(registerState)
+    }
     
     
 }

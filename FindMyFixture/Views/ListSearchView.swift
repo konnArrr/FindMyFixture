@@ -66,7 +66,11 @@ struct ListSearchView: View {
                     }
                 }
                 .onAppear {
-                    viewModel.loadAllFixture()
+                    viewModel.loadAllFixture(){success in
+                        if !success {
+                            // show alert
+                        }
+                    }
                 }                
             }
             .navigationTitle("All Fixtures")

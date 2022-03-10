@@ -7,17 +7,33 @@
 
 import Foundation
 
+private let logger = Logger.getLogger(ApiService.self, level: .verbose)
+
 
 class RegisterViewModel: ObservableObject {
     
-    private let registerService = UserRegisterService()
+
     
     @Published var message: String = ""
     
-    public func registerUser(userName: String, password: String) {
-        registerService.registerUser(username: userName, password: password) { (msg) in
-            self.message = msg
+    public func registerUser(userName: String, password: String, completion: @escaping (Bool) -> Void) {
+        
+        ApiService.shared.registerUser(by: LoginBodyDataModel(username: userName, password: password)) { [weak self] result in
+            guard let this = self else { return }
+            switch result {
+            case .success(let registerData):
+                DispatchQueue.main.async {
+                    let state = registerData.state == "3"
+                    logger.info("loginState: \(state)")
+                    this.message = registerData.message
+                    completion(true)
+                }
+            case .failure(let error):
+                logger.error(error)
+                completion(false)
+            }
         }
+        
     }
     
 }

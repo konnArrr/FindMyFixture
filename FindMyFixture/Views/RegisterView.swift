@@ -67,7 +67,9 @@ struct RegisterView: View {
             
             Button(action: {
                 if (self.password == self.passwordRepeat) {
-                    viewModel.registerUser(userName: username, password: password)
+                    viewModel.registerUser(userName: username, password: password) {success in
+                        // alert that connection to server failed
+                    }
                 } else {
                     viewModel.message = "passwords do not match"
                 }

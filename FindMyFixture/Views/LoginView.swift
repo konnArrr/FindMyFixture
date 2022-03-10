@@ -60,9 +60,11 @@ struct LoginView: View {
                     })
                     
                     Button(action: {
-                        viewModel.login(username: username, password: password)                        
+                        viewModel.login(username: username, password: password) {success in
+                            // alert that connection to server failed
+                        }
                     }) {
-                        Text("Sign In")
+                        Text("Sign in")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
@@ -78,7 +80,7 @@ struct LoginView: View {
                 HStack(spacing: 0) {
                     Text("Don't have an account? ")
                     NavigationLink(destination: RegisterView()) {
-                        Text("sign in")
+                        Text("Sign up")
                     }
                 }
                 

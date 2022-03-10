@@ -11,7 +11,8 @@ import Combine
 struct AddView: View {
     
     @StateObject var viewModel = AddViewModel()
-    
+
+
     @State var colorSys: ColorSystem = .cmy
     @State var lamptype: LampType = .nonHeadMover
     
@@ -32,15 +33,15 @@ struct AddView: View {
         VStack {
             Form {
                 Section(header: Text("Name")) {
-                    TextField("enter name", text: $viewModel.fixtureToAdd.name)
+                    TextField("enter name", text: $viewModel.fixture.name)
                 }
                 Section(header: Text("Producer")) {
-                    TextField("enter producer", text: $viewModel.fixtureToAdd.producer)
+                    TextField("enter producer", text: $viewModel.fixture.producer)
                 }
                 Section(header: Text("Total Power || Light Source Power)")) {
                     HStack {
                         TextField("enter power", text: $power)
-//                            .keyboardType(.numberPad)
+                            .keyboardType(.numberPad)
                             .onReceive(Just(power)) { newValue in
                                             let filtered = newValue.filter { "0123456789".contains($0) }
                                             if filtered != newValue {
@@ -48,7 +49,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: power) { (power) in
-                                viewModel.fixtureToAdd.power = Int(power) ?? 0
+                                viewModel.fixture.power = Int(power) ?? 0
                             }
                         Divider()
                         TextField("enter light power", text: $powerLight)
@@ -60,7 +61,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: powerLight) { (powerL) in
-                                viewModel.fixtureToAdd.powerLight = Int(powerL) ?? 0
+                                viewModel.fixture.powerLight = Int(powerL) ?? 0
                             }
                     }
                 }
@@ -72,7 +73,7 @@ struct AddView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .onChange(of: lamptype) { (lamptype) in
-                        viewModel.fixtureToAdd.headMover = lamptype.rawValue
+                        viewModel.fixture.headMover = lamptype.rawValue
                     }
                 }
                 Section(header: Text("Number Gobo Wheels || Number Prism Wheels")) {
@@ -86,7 +87,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: goboWheels) { input in
-                                viewModel.fixtureToAdd.goboWheels = Int(input) ?? 0
+                                viewModel.fixture.goboWheels = Int(input) ?? 0
                             }
                         Divider()
                         TextField("enter prisms", text: $prisms)
@@ -98,7 +99,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: prisms) { (input) in
-                                viewModel.fixtureToAdd.prisms = Int(input) ?? 0
+                                viewModel.fixture.prisms = Int(input) ?? 0
                             }
                     }
                 }
@@ -113,7 +114,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: minZoom) { input in
-                                viewModel.fixtureToAdd.minZoom = Double(input) ?? 0
+                                viewModel.fixture.minZoom = Double(input) ?? 0
                             }
                         Divider()
                         TextField("enter max zoom", text: $maxZoom)
@@ -125,7 +126,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: maxZoom) { (input) in
-                                viewModel.fixtureToAdd.maxZoom = Double(input) ?? 0
+                                viewModel.fixture.maxZoom = Double(input) ?? 0
                             }
                     }
                 }
@@ -137,7 +138,7 @@ struct AddView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .onChange(of: colorSys) { (colorS) in
-                        viewModel.fixtureToAdd.colorSystem = colorS.rawValue
+                        viewModel.fixture.colorSystem = colorS.rawValue
                     }
                 }
                 Section(header: Text("DMX Number Modes || Min Channel || Max Channel")) {
@@ -151,7 +152,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: dmxModes) { input in
-                                viewModel.fixtureToAdd.dmxModes = Int(input) ?? 0
+                                viewModel.fixture.dmxModes = Int(input) ?? 0
                             }
                         Divider()
                         TextField("enter min dmx", text: $minDmx)
@@ -163,7 +164,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: minDmx) { input in
-                                viewModel.fixtureToAdd.minDmx = Int(input) ?? 0
+                                viewModel.fixture.minDmx = Int(input) ?? 0
                             }
                         Divider()
                         TextField("enter max dmx", text: $maxDmx)
@@ -175,7 +176,7 @@ struct AddView: View {
                                             }
                             }
                             .onChange(of: maxDmx) { input in
-                                viewModel.fixtureToAdd.maxDmx = Int(input) ?? 0
+                                viewModel.fixture.maxDmx = Int(input) ?? 0
                             }
                     }
                 }
@@ -189,11 +190,11 @@ struct AddView: View {
                                         }
                         }
                         .onChange(of: weight) { input in
-                            viewModel.fixtureToAdd.weight = Int(input) ?? 0
+                            viewModel.fixture.weight = Int(input) ?? 0
                         }
                 }
                 Section(header: Text("Comment")) {
-                    TextField("enter comment", text: $viewModel.fixtureToAdd.comment)
+                    TextField("enter comment", text: $viewModel.fixture.comment)
                 }
             }
             VStack {
@@ -201,7 +202,11 @@ struct AddView: View {
                     .multilineTextAlignment(.center)
                     .font(.title2)
                 Button {
-                    viewModel.addFixture()
+                    viewModel.addFixture() {success in
+                        if !success {
+                            // show alert
+                        }
+                    }
                 } label: {
                     Text("store")
                         .font(.title2)

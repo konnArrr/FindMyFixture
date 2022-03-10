@@ -13,10 +13,12 @@ enum URLConstants: String {
     case basePath = "/findmyfixture/php/"
 }
 
-enum FmfUrlPaths: String {
+enum UrlEndPaths: String {
     case getUserById = "getuser_byid_pdo.php"
     case getAllFixtures = "get_all_fixtures.php"
     case loginPath = "loginsql_fmf.php"
+    case registerPath = "register_fmf.php"
+    case addFixturePath = "add_fixture.php"
 }
 
 
