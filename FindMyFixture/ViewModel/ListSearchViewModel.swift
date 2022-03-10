@@ -12,27 +12,41 @@ import Combine
 class ListSearchViewModel: ObservableObject {
     
     @Published private(set) var fixturesToShow = [Fixture]()
+    private var fixtures = [Fixture]()
     
     private var cancellable: AnyCancellable?
+
     
-    init() {
-        cancellable = Repository.shared.$fixturesToShow.sink(receiveValue: { [weak self] loadedFixtures in
-            // nötig weil folgender error: Publishing changes from background threads is not allowed; make sure to publish values from the main thread (via operators like receive(on:)) on model updates. das scheint zu helfen
-            DispatchQueue.main.async {
-                self?.fixturesToShow = loadedFixtures
+    public func loadAllFixture(completion: @escaping (Bool) -> Void) {
+        Repository.shared.loadAllFixtures { result in
+            switch result {
+            case .success(let fixtures):
+                DispatchQueue.main.async {
+                    self.fixtures = fixtures
+                    self.fixturesToShow = fixtures
+                    completion(true)
+                }
+            case .failure(_):
+                completion(false)
             }
-        })
-    }
-    
-    public func loadAllFixture() {
-        Repository.shared.loadAllFixtures()
+        }
     }
     
     public func searchFixturesByName(searchTerm: String) {
-        Repository.shared.filterFixtureListBy(searchTerm: searchTerm)
+        filterFixtureListBy(searchTerm: searchTerm)
     }
     
     
+    
+    private func filterFixtureListBy(searchTerm: String) {
+        if searchTerm.isEmpty {
+            fixturesToShow = fixtures
+        } else {
+            fixturesToShow = fixtures.filter {
+                $0.name.range(of: searchTerm, options: .caseInsensitive) != nil || $0.producer.range(of: searchTerm, options: .caseInsensitive) != nil
+            }
+        }
+    }
     
     
 }
