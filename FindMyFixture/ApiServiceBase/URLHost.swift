@@ -32,7 +32,6 @@ extension URLHost {
 extension URL {
     static var staging: URL {
         return URL(string: URLConstants.baseHttpScheme.rawValue + "://" + URLConstants.baseHost.rawValue + URLConstants.basePath.rawValue)!
-    
     }
 
     static var production: URL {
@@ -46,4 +45,5 @@ extension URL {
         return production
         #endif
     }
+    
 }

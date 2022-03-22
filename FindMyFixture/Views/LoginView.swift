@@ -10,16 +10,11 @@ import Foundation
 import SwiftUI
 
 struct LoginView: View {
-    
-    
     @StateObject var viewModel = LoginViewModel()
-    
     @State private var username: String = ""
     @State private var password: String = ""
-    
     @State private var showingAlert = false
-    
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -52,15 +47,11 @@ struct LoginView: View {
                     
                 }
                 .padding([.leading, .trailing], 27.5)
-                
                 Text("\(viewModel.message)")
-                
-                
                 ZStack {
                     NavigationLink(destination: MainTabView(userId: viewModel.userId), isActive: $viewModel.loginSuccess, label: {
                         EmptyView()
                     })
-                    
                     Button(action: {
                         guard !username.isEmpty && !password.isEmpty else {
                             showingAlert = true
@@ -87,10 +78,7 @@ struct LoginView: View {
                         )
                     }
                     .padding(.top, 50)
-                    
                 }
-                
-                
                 Spacer()
                 HStack(spacing: 0) {
                     Text("Don't have an account? ")
@@ -98,14 +86,11 @@ struct LoginView: View {
                         Text("Sign up")
                     }
                 }
-                
-                
             }
             .background(
                 LinearGradient(gradient: Gradient(colors: [.orange, .red]), startPoint: .top, endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all))
         }
-        
         .onAppear {
             #if DEBUG
             username = "Admin"
@@ -113,14 +98,13 @@ struct LoginView: View {
             #endif
         }
     }
+    
 }
 
-enum Field: Hashable {
-    case usernameField
-    case passwordField
-}
-
-
+//enum Field: Hashable {
+//    case usernameField
+//    case passwordField
+//}
 
 extension Color {
     static var themeTextField: Color {

@@ -11,12 +11,10 @@ private let logger = Logger.getLogger(ApiService.self, level: .verbose)
 
 
 class LoginViewModel: ObservableObject {
-    
-    @Published var message: String = ""
-    @Published var loginSuccess: Bool = false
-    @Published var userId = 0
-    
-    
+    var message: String = ""
+    var loginSuccess: Bool = false
+    var userId = 0
+
     public func login(username: String, password: String, completion: @escaping (Bool) -> Void) {
         ApiService.shared.getLoginResponse(by: LoginBodyDataModel(username: username, password: password)) { [weak self] result in
             guard let this = self else { return }
@@ -28,6 +26,7 @@ class LoginViewModel: ObservableObject {
                     this.message = loginData.message
                     this.userId = Int(loginData.userId) ?? 0
                     completion(true)
+                    this.objectWillChange.send()
                 }
             case .failure(let error):
                 logger.error(error)
@@ -35,7 +34,5 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
-    
-    
     
 }
