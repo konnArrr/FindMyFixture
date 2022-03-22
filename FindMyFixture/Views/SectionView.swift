@@ -70,8 +70,6 @@ struct SectionItemTextFieldView<Formatter: TextFieldFormatter>: View {
     let value: Binding<Formatter.Value>
     let formatter: Formatter
     
-    
-
     public var body: some View {
         TextField(title, text: Binding(get: {
             if self.isEditing {
