@@ -16,7 +16,8 @@ struct LoginView: View {
     
     @State private var username: String = ""
     @State private var password: String = ""
-
+    
+    @State private var showingAlert = false
     
     
     var body: some View {
@@ -54,12 +55,17 @@ struct LoginView: View {
                 
                 Text("\(viewModel.message)")
                 
+                
                 ZStack {
                     NavigationLink(destination: MainTabView(userId: viewModel.userId), isActive: $viewModel.loginSuccess, label: {
                         EmptyView()
                     })
                     
                     Button(action: {
+                        guard !username.isEmpty && !password.isEmpty else {
+                            showingAlert = true
+                            return
+                        }
                         viewModel.login(username: username, password: password) {success in
                             // alert that connection to server failed
                         }
@@ -72,7 +78,16 @@ struct LoginView: View {
                             .background(Color.green)
                             .cornerRadius(15.0)
                             .shadow(radius: 10.0, x: 20, y: 10)
-                    }.padding(.top, 50)
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(
+                            title: Text("Error"),
+                            message: Text("Please insert username and password!"),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
+                    .padding(.top, 50)
+                    
                 }
                 
                 
@@ -91,7 +106,12 @@ struct LoginView: View {
                     .edgesIgnoringSafeArea(.all))
         }
         
-        
+        .onAppear {
+            #if DEBUG
+            username = "Admin"
+            password = "admin"
+            #endif
+        }
     }
 }
 

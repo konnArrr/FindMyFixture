@@ -57,7 +57,7 @@ struct DetailView: View {
                 }
             }
             Section(header: Text("Lamp Type")) {
-                Text("\(fixture.lampType.getLampTypeName())")
+                Text("\(fixture.lampType.getName())")
             }
             Section(header: Text("Gobo Wheels || Prism Wheels")) {
                 HStack {
@@ -82,7 +82,7 @@ struct DetailView: View {
                 }
             }
             Section(header: Text("Color Mix System")) {
-                Text("\(fixture.colorSysEnum.getColorSystemName())")
+                Text("\(fixture.colorSysEnum.getName())")
             }
             Section(header: Text("DMX Number Modes || Min || Max")) {
                 HStack {

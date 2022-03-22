@@ -14,9 +14,9 @@ enum Mock {
     }
     
     enum Fixture {
-        static let validFixture = FindMyFixture.Fixture(id: 1, name: "Quantum", producer: "Martin", power: 1200, powerLight: 700, headMover: 1, goboWheels: 2, prisms: 3, minZoom: 15.0, maxZoom: 45.0, colorSystem: 1, dmxModes: 2, minDmx: 27, maxDmx: 45, weight: 26, comment: "Klassiker und macht was er soll", imageURL: "http://hasashi.bplaced.net/findmyfixture/images/default_mh.png")
+        static let validFixture = FindMyFixture.Fixture(id: 1, name: "Quantum", producer: "Martin", power: 1200, powerLight: 700, goboWheels: 2, prisms: 3, minZoom: 15.0, maxZoom: 45.0, dmxModes: 2, minDmx: 27, maxDmx: 45, weight: 26, comment: "Klassiker und macht was er soll", imageURL: "http://hasashi.bplaced.net/findmyfixture/images/default_mh.png", colorSysEnum: .cmy, lampType: .headmover)
         
-        static let addingFixture = FindMyFixture.Fixture(id: 1, name: "Spectral", producer: "Chauvet", power: 120, powerLight: 700, headMover: 1, goboWheels: 2, prisms: 3, minZoom: 15.0, maxZoom: 45.0, colorSystem: 1, dmxModes: 2, minDmx: 27, maxDmx: 45, weight: 26, comment: "klein aber fein", imageURL: "http://hasashi.bplaced.net/findmyfixture/images/default_mh.png")
+        static let addingFixture = FindMyFixture.Fixture(id: 1, name: "SlimPAR Pro Q", producer: "Chauvet", power: 120, powerLight: 700, goboWheels: 2, prisms: 3, minZoom: 16, maxZoom: 31, dmxModes: 3, minDmx: 4, maxDmx: 10, weight: 3, comment: "klein aber fein", imageURL: "http://hasashi.bplaced.net/findmyfixture/images/default_mh.png", colorSysEnum: .rgbw, lampType: .nonHeadMover)
     }
     
     enum StatusCodes {

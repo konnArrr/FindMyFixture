@@ -9,57 +9,56 @@ import Foundation
 
 
 class Fixture: BodyDataModel, Equatable, ObservableObject{
-    
-    
+
+ 
     
     var id: Int
     @Published var name: String
     @Published var producer: String
     @Published var power: Int
     @Published var powerLight: Int
-    @Published var headMover: Int
+//    @Published var headMover: Int
     @Published var goboWheels: Int
     @Published var prisms: Int
     @Published var minZoom: Double
     @Published var maxZoom: Double
-    @Published var colorSystem: Int
+//    @Published var colorSystem: Int
     @Published var dmxModes: Int
     @Published var minDmx: Int
     @Published var maxDmx: Int
     @Published var weight: Int
     @Published var comment: String
     @Published var imageURL: String
+    @Published var colorSysEnum: ColorSystem
+    @Published var lampType: LampType
     
     
-    var colorSysEnum: ColorSystem {
-        return ColorSystem(rawValue: colorSystem) ?? .cmy
-    }
     
-    var lampType: LampType {
-        return LampType(rawValue: headMover) ?? .nonHeadMover
-    }
-    
-    
-    internal init(id: Int, name: String, producer: String, power: Int, powerLight: Int, headMover: Int, goboWheels: Int, prisms: Int, minZoom: Double, maxZoom: Double, colorSystem: Int, dmxModes: Int, minDmx: Int, maxDmx: Int, weight: Int, comment: String, imageURL: String) {
+    internal init(id: Int, name: String, producer: String, power: Int, powerLight: Int, goboWheels: Int, prisms: Int, minZoom: Double, maxZoom: Double, dmxModes: Int, minDmx: Int, maxDmx: Int, weight: Int, comment: String, imageURL: String, colorSysEnum: ColorSystem, lampType: LampType) {
         self.id = id
         self.name = name
         self.producer = producer
         self.power = power
         self.powerLight = powerLight
-        self.headMover = headMover
+//        self.headMover = headMover
         self.goboWheels = goboWheels
         self.prisms = prisms
         self.minZoom = minZoom
         self.maxZoom = maxZoom
-        self.colorSystem = colorSystem
+//        self.colorSystem = colorSystem
         self.dmxModes = dmxModes
         self.minDmx = minDmx
         self.maxDmx = maxDmx
         self.weight = weight
         self.comment = comment
         self.imageURL = imageURL
+        self.colorSysEnum = colorSysEnum
+        self.lampType = lampType
         super.init()
     }
+    
+    
+    
     
     enum CodeKeys: CodingKey {
         case id
@@ -89,18 +88,20 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
         producer = try container.decode(String.self, forKey:.producer)
         power = try container.decode(Int.self, forKey:.power)
         powerLight = try container.decode(Int.self, forKey:.powerLight)
-        headMover = try container.decode(Int.self, forKey:.headMover)
+//        headMover = try container.decode(Int.self, forKey:.headMover)
         goboWheels = try container.decode(Int.self, forKey:.goboWheels)
         prisms = try container.decode(Int.self, forKey:.prisms)
         minZoom = try container.decode(Double.self, forKey:.minZoom)
         maxZoom = try container.decode(Double.self, forKey:.maxZoom)
-        colorSystem = try container.decode(Int.self, forKey:.colorSystem)
+//        colorSystem = try container.decode(Int.self, forKey:.colorSystem)
         dmxModes = try container.decode(Int.self, forKey:.dmxModes)
         minDmx = try container.decode(Int.self, forKey:.minDmx)
         maxDmx = try container.decode(Int.self, forKey:.maxDmx)
         weight = try container.decode(Int.self, forKey:.weight)
         comment = try container.decode(String.self, forKey:.comment)
         imageURL = try container.decode(String.self, forKey:.imageURL)
+        colorSysEnum = ColorSystem(rawValue: try container.decode(Int.self, forKey:.colorSystem)) ?? .cmy
+        lampType = LampType(rawValue: try container.decode(Int.self, forKey:.headMover)) ?? .nonHeadMover
         super.init()
     }
     
@@ -112,12 +113,12 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
         try container.encode (producer, forKey: .producer)
         try container.encode (power, forKey: .power)
         try container.encode (powerLight, forKey: .powerLight)
-        try container.encode (headMover, forKey: .headMover)
+        try container.encode (lampType.rawValue, forKey: .headMover)
         try container.encode (goboWheels, forKey: .goboWheels)
         try container.encode (prisms, forKey: .prisms)
         try container.encode (minZoom, forKey: .minZoom)
         try container.encode (maxZoom, forKey: .maxZoom)
-        try container.encode (colorSystem, forKey: .colorSystem)
+        try container.encode (colorSysEnum.rawValue, forKey: .colorSystem)
         try container.encode (dmxModes, forKey: .dmxModes)
         try container.encode (minDmx, forKey: .minDmx)
         try container.encode (maxDmx, forKey: .maxDmx)
@@ -130,15 +131,25 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
         return lhs.id == rhs.id
     }
     
-
+    
 }
 
 
-enum LampType: Int, CaseIterable {
+enum LampType: Int, PickerTypeProtocol {
+    
+    var id: String { return UUID().uuidString }
+    
+    typealias PickerType = LampType
+    
+    func allCases() -> [PickerType] {
+        return LampType.allCases
+    }
+    
+    
     case nonHeadMover = 0
     case headmover = 1
     
-    func getLampTypeName() -> String {
+    func getName() -> String {
         switch self {
         case .nonHeadMover:
             return "Static"
@@ -150,7 +161,17 @@ enum LampType: Int, CaseIterable {
 }
 
 
-enum ColorSystem: Int, CaseIterable {
+enum ColorSystem: Int,  PickerTypeProtocol {
+    
+    var id: String { return UUID().uuidString }
+    
+    typealias PickerType = ColorSystem
+    
+    func allCases() -> [ColorSystem] {
+        return ColorSystem.allCases
+    }
+    
+    
     case cmy = 1
     case rgb = 2
     case rgbw = 3
@@ -158,7 +179,7 @@ enum ColorSystem: Int, CaseIterable {
     case rgbaw = 5
     case rgbawuv = 6
     
-    func getColorSystemName() -> String {
+    func getName() -> String {
         switch self {
         case .cmy:
             return "\(ColorSystem.cmy)"
