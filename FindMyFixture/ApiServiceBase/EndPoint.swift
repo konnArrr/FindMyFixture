@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 private let logger = Logger.getLogger(ApiService.self, level: .verbose)
-
 
 protocol EndpointKind {
    static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel)
@@ -35,18 +33,13 @@ enum EndpointKinds {
     
 }
 
-
-
-
 struct Endpoint<Kind: EndpointKind, Response: Decodable> {
-    
     var path: String
     var requestData: RequestDataModel
     
 }
 
 extension Endpoint {
-    
     var url: URL {
         var components = URLComponents()
         components.scheme = URLConstants.baseHttpScheme.rawValue
@@ -65,7 +58,6 @@ extension Endpoint {
 }
 
 extension Endpoint {
-    
     func makeRequest() -> URLRequest? {
         var request = URLRequest(url: url)
         Kind.prepare(&request, with: self.requestData)
@@ -76,10 +68,10 @@ extension Endpoint {
 
 
 extension URLComponents {
-    
     mutating func setQueryItems(with parameters: [String: String]) {
         self.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
     }
+    
 }
 
 

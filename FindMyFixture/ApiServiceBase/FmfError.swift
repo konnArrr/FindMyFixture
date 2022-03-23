@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public enum FmfLoadError: Error {
     case urlLoadError
     case dataLoadError
@@ -17,6 +16,4 @@ public enum FmfLoadError: Error {
     case statusCode(Int)
 }
 
-extension FmfLoadError : LocalizedError {
-    
-}
+extension FmfLoadError : LocalizedError { }

@@ -8,11 +8,9 @@
 import Foundation
 import Combine
 
-
 extension URLSession {
-    
-    
-    func publisher<K, R>(endpoint: Endpoint<K, R>,decoder: JSONDecoder = .init()) -> AnyPublisher<R, Error>    {
+
+    func publisher<K, R>(endpoint: Endpoint<K, R>,decoder: JSONDecoder = .init()) -> AnyPublisher<R, Error> {
         guard let request = endpoint.makeRequest() else {
             return Fail(
                 error: FmfLoadError.dataLoadError
@@ -32,6 +30,5 @@ extension URLSession {
             .map(\.result)
             .eraseToAnyPublisher()
     }
-    
     
 }
