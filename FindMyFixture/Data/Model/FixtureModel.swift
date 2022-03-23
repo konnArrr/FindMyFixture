@@ -17,12 +17,10 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
     @Published var producer: String
     @Published var power: Int
     @Published var powerLight: Int
-//    @Published var headMover: Int
     @Published var goboWheels: Int
     @Published var prisms: Int
     @Published var minZoom: Double
     @Published var maxZoom: Double
-//    @Published var colorSystem: Int
     @Published var dmxModes: Int
     @Published var minDmx: Int
     @Published var maxDmx: Int
@@ -40,12 +38,10 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
         self.producer = producer
         self.power = power
         self.powerLight = powerLight
-//        self.headMover = headMover
         self.goboWheels = goboWheels
         self.prisms = prisms
         self.minZoom = minZoom
         self.maxZoom = maxZoom
-//        self.colorSystem = colorSystem
         self.dmxModes = dmxModes
         self.minDmx = minDmx
         self.maxDmx = maxDmx
@@ -88,12 +84,10 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
         producer = try container.decode(String.self, forKey:.producer)
         power = try container.decode(Int.self, forKey:.power)
         powerLight = try container.decode(Int.self, forKey:.powerLight)
-//        headMover = try container.decode(Int.self, forKey:.headMover)
         goboWheels = try container.decode(Int.self, forKey:.goboWheels)
         prisms = try container.decode(Int.self, forKey:.prisms)
         minZoom = try container.decode(Double.self, forKey:.minZoom)
         maxZoom = try container.decode(Double.self, forKey:.maxZoom)
-//        colorSystem = try container.decode(Int.self, forKey:.colorSystem)
         dmxModes = try container.decode(Int.self, forKey:.dmxModes)
         minDmx = try container.decode(Int.self, forKey:.minDmx)
         maxDmx = try container.decode(Int.self, forKey:.maxDmx)
