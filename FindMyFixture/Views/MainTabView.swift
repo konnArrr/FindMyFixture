@@ -54,9 +54,11 @@ struct MainTabView: View {
         }
         .navigationBarBackButtonHidden(true)
         
+    }   
+}
+
+struct MainTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainTabView(userId: 1)
     }
-    
-    
-    
-    
 }

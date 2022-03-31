@@ -25,8 +25,8 @@ struct ListSearchView: View {
                         TextField("search", text: $searchString, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         })
-                        .foregroundColor(.primary)
-                        .disableAutocorrection(true)
+                            .foregroundColor(.primary)
+                            .disableAutocorrection(true)
                         Button(action: {
                             self.searchString = ""
                         }) {
@@ -37,7 +37,6 @@ struct ListSearchView: View {
                     .foregroundColor(.secondary)
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(10.0)
-                    
                     if showCancelButton  {
                         Button("Cancel") {
                             UIApplication.shared.endEditing(true) // this must be placed before the other commands here
@@ -51,10 +50,7 @@ struct ListSearchView: View {
                 .navigationBarHidden(showCancelButton)
                 .onChange(of: searchString) {newValue in
                     viewModel.searchFixturesByName(searchTerm: newValue)
-                    
                 }
-                
-                
                 ScrollView {
                     LazyVStack {
                         ForEach(viewModel.fixturesToShow, id: \.id) {fixture in
@@ -71,7 +67,7 @@ struct ListSearchView: View {
                             // show alert
                         }
                     }
-                }                
+                }
             }
             .navigationTitle("All Fixtures")
         }
@@ -103,5 +99,13 @@ struct ResignKeyboardOnDragGesture: ViewModifier {
 extension View {
     func resignKeyboardOnDragGesture() -> some View {
         return modifier(ResignKeyboardOnDragGesture())
+    }
+}
+
+struct ListSearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        let view = ListSearchView()
+        view.viewModel.fixturesToShow = [Mock.Fixture.addingFixture, Mock.Fixture.validFixture]
+        return view
     }
 }

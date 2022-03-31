@@ -11,7 +11,7 @@ import Combine
 
 class ListSearchViewModel: ObservableObject {
     
-    @Published private(set) var fixturesToShow = [Fixture]()
+    @Published var fixturesToShow: [Fixture] = []
     private var fixtures = [Fixture]()
     
     private var cancellable: AnyCancellable?
@@ -47,6 +47,6 @@ class ListSearchViewModel: ObservableObject {
             }
         }
     }
-    
-    
 }
+
+
