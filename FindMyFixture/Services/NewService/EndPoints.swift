@@ -8,43 +8,43 @@
 import Foundation
 
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == [Fixture] {
+extension Endpoint where Kind == EndpointKinds.Public<Fixture>, Response == [Fixture] {
     
     static func getAllFixtures() -> Self {
-        let requestData = RequestDataModel(httpMethod: .GET)
+        let requestData = RequestDataModel<Fixture>(httpMethod: .GET)
         return Endpoint(path: UrlEndPaths.getAllFixtures.rawValue, requestData: requestData)
     }
     
 }
 
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == User {
+extension Endpoint where Kind == EndpointKinds.Public<UserBodyDataModel>, Response == User {
     
     static func getUser(by bodyData: UserBodyDataModel) -> Self {
-        let requestData = RequestDataModel(httpMethod: .POST, bodyData: bodyData)
+        let requestData = RequestDataModel<UserBodyDataModel>(httpMethod: .POST, bodyData: bodyData)
         return Endpoint(path: UrlEndPaths.getUserById.rawValue, requestData: requestData)
     }
     
 }
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == LoginResponse {
+extension Endpoint where Kind == EndpointKinds.Public<LoginRegisterBodyDataModel>, Response == LoginResponse {
     
-    static func getLoginEndpoint(bodyData: LoginBodyDataModel) -> Self {
-        let requestData = RequestDataModel(httpMethod: .POST, bodyData: bodyData)
+    static func getLoginEndpoint(bodyData: LoginRegisterBodyDataModel) -> Self {
+        let requestData = RequestDataModel<LoginRegisterBodyDataModel>(httpMethod: .POST, bodyData: bodyData)
         return Endpoint(path: UrlEndPaths.loginPath.rawValue, requestData: requestData)
     }
     
 }
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == PhpResponse {
-    static func getRegisterEndpoint(bodyData: LoginBodyDataModel) -> Self {
-        let requestData = RequestDataModel(httpMethod: .POST, bodyData: bodyData)
+extension Endpoint where Kind == EndpointKinds.Public<LoginRegisterBodyDataModel>, Response == PhpResponse {
+    static func getRegisterEndpoint(bodyData: LoginRegisterBodyDataModel) -> Self {
+        let requestData = RequestDataModel<LoginRegisterBodyDataModel>(httpMethod: .POST, bodyData: bodyData)
         return Endpoint(path: UrlEndPaths.registerPath.rawValue, requestData: requestData)
     }
 }
 
 
-extension Endpoint where Kind == EndpointKinds.Public, Response == PhpResponse {
+extension Endpoint where Kind == EndpointKinds.Public<Fixture>, Response == PhpResponse {
     static func getAddFixtureEndpoint(bodyData: Fixture) -> Self {
         let requestData = RequestDataModel(httpMethod: .POST, bodyData: bodyData)
         return Endpoint(path: UrlEndPaths.addFixturePath.rawValue, requestData: requestData)

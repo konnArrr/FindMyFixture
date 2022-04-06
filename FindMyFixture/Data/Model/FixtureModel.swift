@@ -50,7 +50,6 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
         self.imageURL = imageURL
         self.colorSysEnum = colorSysEnum
         self.lampType = lampType
-        super.init()
     }
     
     
@@ -96,10 +95,9 @@ class Fixture: BodyDataModel, Equatable, ObservableObject{
         imageURL = try container.decode(String.self, forKey:.imageURL)
         colorSysEnum = ColorSystem(rawValue: try container.decode(Int.self, forKey:.colorSystem)) ?? .cmy
         lampType = LampType(rawValue: try container.decode(Int.self, forKey:.headMover)) ?? .nonHeadMover
-        super.init()
     }
     
-    override func encode(to encoder: Encoder) throws
+    func encode(to encoder: Encoder) throws
     {
         var container = encoder.container(keyedBy: CodeKeys.self)
         try container.encode (id, forKey: .id)

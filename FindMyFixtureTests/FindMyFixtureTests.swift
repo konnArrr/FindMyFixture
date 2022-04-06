@@ -11,7 +11,7 @@ import Combine
 
 class FindMyFixtureTests: XCTestCase {
     
-    typealias PublicEndpoint = Endpoint<EndpointKinds.Public, User>
+    typealias PublicEndpoint = Endpoint<EndpointKinds.Public<UserBodyDataModel>, User>
 
     override class func setUp() {
         super.setUp()
@@ -63,7 +63,7 @@ class FindMyFixtureTests: XCTestCase {
         
         var testRequest = URLRequest(url: URL.default)
         
-        testRequest.httpMethod = RequestDataModel.HttpMethod.POST.rawValue
+        testRequest.httpMethod = HttpMethod.POST.rawValue
         
         XCTAssertEqual(
             request?.httpMethod,
@@ -83,7 +83,7 @@ class FindMyFixtureTests: XCTestCase {
     
         XCTAssertEqual(
             endPoint.requestData.httpMethod,
-            RequestDataModel.HttpMethod.POST
+            HttpMethod.POST
         )
     }
     
@@ -173,7 +173,7 @@ class FindMyFixtureTests: XCTestCase {
     func testLoginService() {
         let expectation = self.expectation(description: "await api answer")
         var loginState: Bool = false
-        ApiService.shared.getLoginResponse(by: LoginBodyDataModel(username: "admin", password: "admin")) { result in
+        ApiService.shared.getLoginResponse(by: LoginRegisterBodyDataModel(username: "admin", password: "admin")) { result in
             switch result {
             case .success(let response):                
                 loginState = response.state == "3"
@@ -189,10 +189,10 @@ class FindMyFixtureTests: XCTestCase {
     func testRegisterService() {
         let expectation = self.expectation(description: "await api answer")
         var registerState: Bool = false
-        ApiService.shared.registerUser(by: LoginBodyDataModel(username: "testing", password: "testing")) { result in
+        ApiService.shared.registerUser(by: LoginRegisterBodyDataModel(username: "testing", password: "testing")) { result in
             switch result {
             case .success(let response):
-                registerState = response.state == "3"
+                registerState = response.state == "1"
             case .failure(let error):
                 print("register error . \(error)")
             }

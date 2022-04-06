@@ -7,4 +7,4 @@
 
 import Foundation
 
-class BodyDataModel: Codable { }
+protocol BodyDataModel: Codable { }

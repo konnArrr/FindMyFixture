@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct RequestDataModel {
+struct RequestDataModel <T: BodyDataModel> where T: Codable {
     var httpMethod: HttpMethod
     var queryItems: [String : String]?
-    var bodyData: BodyDataModel?
-
-    enum HttpMethod : String, Codable {
-       case  GET
-       case  POST
-       case  DELETE
-       case  PUT
-    }
+    var bodyData: T?
+    
+    
     
 }
-    
-    
+
+enum HttpMethod : String, Codable {
+    case  GET
+    case  POST
+    case  DELETE
+    case  PUT
+}

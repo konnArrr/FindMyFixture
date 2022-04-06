@@ -53,8 +53,8 @@
 		9EEB4CDB27CFAD0A0011511B /* NetworkResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CDA27CFAD0A0011511B /* NetworkResponseModel.swift */; };
 		9EEB4CDD27CFC75F0011511B /* RequestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CDC27CFC75F0011511B /* RequestDataModel.swift */; };
 		9EEB4CE127CFC9870011511B /* BodyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE027CFC9870011511B /* BodyDataModel.swift */; };
-		9EEB4CE327CFCCEA0011511B /* LoginBodyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE227CFCCEA0011511B /* LoginBodyDataModel.swift */; };
-		9EEB4CE527CFD4ED0011511B /* GetUserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE427CFD4ED0011511B /* GetUserDataModel.swift */; };
+		9EEB4CE327CFCCEA0011511B /* LoginRegisterBodyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE227CFCCEA0011511B /* LoginRegisterBodyDataModel.swift */; };
+		9EEB4CE527CFD4ED0011511B /* UserBodyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEB4CE427CFD4ED0011511B /* UserBodyDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,8 +117,8 @@
 		9EEB4CDA27CFAD0A0011511B /* NetworkResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseModel.swift; sourceTree = "<group>"; };
 		9EEB4CDC27CFC75F0011511B /* RequestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDataModel.swift; sourceTree = "<group>"; };
 		9EEB4CE027CFC9870011511B /* BodyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyDataModel.swift; sourceTree = "<group>"; };
-		9EEB4CE227CFCCEA0011511B /* LoginBodyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBodyDataModel.swift; sourceTree = "<group>"; };
-		9EEB4CE427CFD4ED0011511B /* GetUserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserDataModel.swift; sourceTree = "<group>"; };
+		9EEB4CE227CFCCEA0011511B /* LoginRegisterBodyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterBodyDataModel.swift; sourceTree = "<group>"; };
+		9EEB4CE427CFD4ED0011511B /* UserBodyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBodyDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +147,8 @@
 				3F70352B2671FDD30004DEF5 /* LoginResponseModel.swift */,
 				3F703535267223CA0004DEF5 /* RegisterResponseModel.swift */,
 				3F703538267244B90004DEF5 /* FixtureModel.swift */,
-				9EEB4CE227CFCCEA0011511B /* LoginBodyDataModel.swift */,
-				9EEB4CE427CFD4ED0011511B /* GetUserDataModel.swift */,
+				9EEB4CE227CFCCEA0011511B /* LoginRegisterBodyDataModel.swift */,
+				9EEB4CE427CFD4ED0011511B /* UserBodyDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -432,7 +432,7 @@
 				9EEB4CDD27CFC75F0011511B /* RequestDataModel.swift in Sources */,
 				9E6207B427DA557C00CC7216 /* SectionViewModel.swift in Sources */,
 				9EA41C2B27B3E42A0063A831 /* Mock.swift in Sources */,
-				9EEB4CE527CFD4ED0011511B /* GetUserDataModel.swift in Sources */,
+				9EEB4CE527CFD4ED0011511B /* UserBodyDataModel.swift in Sources */,
 				3F7035292671FD9C0004DEF5 /* UserModel.swift in Sources */,
 				9E78D1E927B2A8BD0077AB05 /* NetWorkConstants.swift in Sources */,
 				3FBE1D9C2671492B003AF4D3 /* FindMyFixtureApp.swift in Sources */,
@@ -441,7 +441,7 @@
 				9EDE975F27C6956800C31820 /* ApiServiceExtension.swift in Sources */,
 				3F70355B267270730004DEF5 /* MainTabView.swift in Sources */,
 				9E6207B827DA5D2600CC7216 /* SectionView.swift in Sources */,
-				9EEB4CE327CFCCEA0011511B /* LoginBodyDataModel.swift in Sources */,
+				9EEB4CE327CFCCEA0011511B /* LoginRegisterBodyDataModel.swift in Sources */,
 				3F703564267297180004DEF5 /* FavouritesView.swift in Sources */,
 				3F70352C2671FDD30004DEF5 /* LoginResponseModel.swift in Sources */,
 			);

@@ -17,11 +17,11 @@ extension ApiService {
     }
     
     
-    public func getLoginResponse(by data: LoginBodyDataModel, completion:  @escaping (Result<LoginResponse, Error>) -> Void) {
-        loadModel(endPoint: Endpoint<EndpointKinds.Public, LoginResponse>.getLoginEndpoint(bodyData: data), completion: completion)
+    public func getLoginResponse(by data: LoginRegisterBodyDataModel, completion:  @escaping (Result<LoginResponse, Error>) -> Void) {
+        loadModel(endPoint: Endpoint.getLoginEndpoint(bodyData: data), completion: completion)
     }
     
-    public func registerUser(by data: LoginBodyDataModel, completion: @escaping (Result<PhpResponse, Error>) -> Void) {
+    public func registerUser(by data: LoginRegisterBodyDataModel, completion: @escaping (Result<PhpResponse, Error>) -> Void) {
         loadModel(endPoint: Endpoint<EndpointKinds.Public, PhpResponse>.getRegisterEndpoint(bodyData: data), completion: completion)
     }
     

@@ -18,7 +18,7 @@ class RegisterViewModel: ObservableObject {
     
     public func registerUser(userName: String, password: String, completion: @escaping (Bool) -> Void) {
         
-        ApiService.shared.registerUser(by: LoginBodyDataModel(username: userName, password: password)) { [weak self] result in
+        ApiService.shared.registerUser(by: LoginRegisterBodyDataModel(username: userName, password: password)) { [weak self] result in
             guard let this = self else { return }
             switch result {
             case .success(let registerData):

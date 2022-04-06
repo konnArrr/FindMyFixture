@@ -10,12 +10,16 @@ import Foundation
 private let logger = Logger.getLogger(ApiService.self, level: .verbose)
 
 protocol EndpointKind {
-   static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel)
+    associatedtype BodyDataType: BodyDataModel
+    static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel<BodyDataType>)
 }
 
 enum EndpointKinds {
-    enum Public: EndpointKind {
-        static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel) {
+    
+    /*make bodyData optional or */
+    
+    enum Public<T: BodyDataModel>: EndpointKind { 
+        static func prepare(_ request: inout URLRequest, with requestData: RequestDataModel<T>) {
             // add specific requestData to request
             if let bodydata = requestData.bodyData {
                 let encoder = JSONEncoder()
@@ -33,10 +37,9 @@ enum EndpointKinds {
     
 }
 
-struct Endpoint<Kind: EndpointKind, Response: Decodable> {
+struct Endpoint<Kind: EndpointKind, Response: Codable> {
     var path: String
-    var requestData: RequestDataModel
-    
+    var requestData: RequestDataModel<Kind.BodyDataType>
 }
 
 extension Endpoint {

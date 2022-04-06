@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class LoginBodyDataModel: BodyDataModel {
+class LoginRegisterBodyDataModel: BodyDataModel {
     
     let username: String
     let password: String
@@ -17,7 +17,6 @@ class LoginBodyDataModel: BodyDataModel {
         
         self.username = username
         self.password = password
-        super.init()
     }
     
     enum CodeKeys: CodingKey
@@ -30,10 +29,9 @@ class LoginBodyDataModel: BodyDataModel {
         let container = try decoder.container(keyedBy: CodeKeys.self)
         username = try container.decode (String.self, forKey: .username)
         password = try container.decode (String.self, forKey: .password)
-        super.init()
     }
     
-    override func encode(to encoder: Encoder) throws
+    func encode(to encoder: Encoder) throws
     {
         var container = encoder.container(keyedBy: CodeKeys.self)
         try container.encode (username, forKey: .username)

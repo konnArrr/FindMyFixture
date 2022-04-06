@@ -16,7 +16,7 @@ class LoginViewModel: ObservableObject {
     var userId = 0
 
     public func login(username: String, password: String, completion: @escaping (Bool) -> Void) {
-        ApiService.shared.getLoginResponse(by: LoginBodyDataModel(username: username, password: password)) { [weak self] result in
+        ApiService.shared.getLoginResponse(by: LoginRegisterBodyDataModel(username: username, password: password)) { [weak self] result in
             guard let this = self else { return }
             switch result {
             case .success(let loginData):

@@ -10,7 +10,7 @@ import Foundation
 
 
 
-public struct User: Codable, Equatable {
+public struct User: BodyDataModel, Equatable {
     public let id: Int
     let username, password: String
     let adminRights: Int
