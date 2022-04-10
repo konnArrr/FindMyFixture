@@ -11,7 +11,7 @@ import Foundation
 class Fixture: BodyDataModel, Equatable, ObservableObject{
 
  
-    
+    // change to DTO Object and struct
     var id: Int
     @Published var name: String
     @Published var producer: String
