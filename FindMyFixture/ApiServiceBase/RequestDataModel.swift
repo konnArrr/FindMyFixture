@@ -7,13 +7,10 @@
 
 import Foundation
 
-struct RequestDataModel <T: BodyDataModel> where T: Codable {
+struct RequestDataModel <T: BodyDataModel> {
     var httpMethod: HttpMethod
     var queryItems: [String : String]?
     var bodyData: T?
-    
-    
-    
 }
 
 enum HttpMethod : String, Codable {

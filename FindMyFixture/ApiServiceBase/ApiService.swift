@@ -14,6 +14,7 @@ class ApiService{
     var urlSession = URLSession.shared
     private var cancellable: AnyCancellable?
     
+    
     public func loadModel<K: EndpointKind, T>(endPoint: Endpoint<K, T>, completion: @escaping (Result<T, Error>) -> Void ) {
         let session = urlSession.publisher(endpoint: endPoint)
         self.cancellable = session
